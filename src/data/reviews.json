@@ -1,0 +1,33 @@
+{
+  "source": "manual",
+  "fetchedAt": null,
+  "rating": 4.8,
+  "totalReviews": 9,
+  "profileUrl": "",
+  "reviews": [
+    {
+      "name": "Larona C",
+      "rating": 5,
+      "text": "I had an amazing experience at Grace Beauty Salon! Grace is very experienced and knows how to do hair.",
+      "date": "May 26, 2026"
+    },
+    {
+      "name": "Boikgantsho M",
+      "rating": 5,
+      "text": "I came to this salon to do cornrows but I got more than that! Sis Grace is amazing! She is so well skilled and friendly.",
+      "date": "May 4, 2026"
+    },
+    {
+      "name": "Sithabile M",
+      "rating": 5,
+      "text": "The hairdresser has obviously been doing people's hair for a long time it show, she cares about your hair.",
+      "date": "Feb 25, 2026"
+    },
+    {
+      "name": "Thebehadi H",
+      "rating": 5,
+      "text": "This was my second visit, and I can confidently say I've found my go-to salon. The service is amazing.",
+      "date": "Jan 10, 2026"
+    }
+  ]
+}

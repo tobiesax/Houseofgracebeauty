@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://houseofgracebeauty.co.za/sitemap.xml
