@@ -25,6 +25,12 @@ import {
 } from 'lucide-react'
 
 import REVIEW_DATA from './data/reviews.json'
+import SETTINGS from '../content/settings/index.json'
+
+// Every "Book Now" CTA hands off to Fresha — she keeps her existing booking
+// workflow (calendar, deposits, reminders); the site's job is everything
+// before that click. Editable by Grace via the CMS at content/settings.
+const FRESHA_URL = SETTINGS.freshaBookingUrl
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -168,7 +174,9 @@ function Navbar() {
           </div>
 
           <a
-            href="#contact"
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden lg:inline-flex magnetic-btn items-center gap-1.5 bg-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg shadow-primary/30"
           >
             Book Now
@@ -216,7 +224,9 @@ function Navbar() {
             ))}
           </div>
           <a
-            href="#contact"
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-8 magnetic-btn flex items-center justify-center gap-2 bg-primary text-white px-6 py-4 rounded-full font-medium w-full"
           >
@@ -298,7 +308,9 @@ function Hero() {
 
           <div className="hero-cta mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#contact"
+              href={FRESHA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="magnetic-btn group inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-7 py-4 rounded-full shadow-2xl shadow-primary/40"
             >
               Book Your Scalp Analysis
@@ -465,7 +477,9 @@ function Specialties() {
               Not on the list? Bring it anyway — that is what the analysis is for.
             </p>
             <a
-              href="#contact"
+              href={FRESHA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="magnetic-btn inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-6 py-3 rounded-full shadow-lg shadow-primary/25 flex-shrink-0"
             >
               Book a scalp analysis · R150
@@ -497,7 +511,9 @@ function Specialties() {
 
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <a
-            href="#contact"
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-xl shadow-primary/30"
           >
             Start with a scalp analysis
@@ -616,7 +632,9 @@ function MeetCEO() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="#contact"
+                href={FRESHA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-6 py-3.5 rounded-full shadow-lg shadow-primary/30"
               >
                 Book your consultation
@@ -715,7 +733,9 @@ function Portfolio() {
             Ready to see what your hair is capable of? Book a scalp analysis and we'll build your plan from there.
           </p>
           <a
-            href="#contact"
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-xl shadow-primary/30"
           >
             Book Your Appointment
@@ -1666,7 +1686,9 @@ function TrustSignals() {
 
         <div className="text-center">
           <a
-            href="#contact"
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-xl shadow-primary/30"
           >
             Start your healthy hair journey
@@ -1919,7 +1941,9 @@ function Footer() {
               Johannesburg. Woman-owned, Black-owned, trusted by the community.
             </p>
             <a
-              href="#contact"
+              href={FRESHA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full self-start sm:self-auto"
             >
               Book Now
@@ -2503,8 +2527,7 @@ export default function App() {
   const getTotalPrice = () => cartItems.reduce((sum, item) => sum + item.price, 0)
 
   const handleBookNow = () => {
-    const element = document.getElementById('contact')
-    element?.scrollIntoView({ behavior: 'smooth' })
+    window.open(FRESHA_URL, '_blank', 'noopener,noreferrer')
   }
 
   useEffect(() => {

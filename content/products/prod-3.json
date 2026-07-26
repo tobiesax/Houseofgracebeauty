@@ -1,0 +1,10 @@
+{
+  "id": "prod-3",
+  "image": "/product-pores-treatment.webp",
+  "name": "Pores Awakening Treatment",
+  "tagline": "Revive your scalp",
+  "description": "A targeted scalp treatment designed to unclog pores, remove build-up, and awaken dormant follicles. Formulated with active botanical extracts to restore balance and create the ideal environment for hair growth.",
+  "badge": "New Arrival",
+  "treats": "Build-up · Flaking · Dormant follicles",
+  "price": 380
+}

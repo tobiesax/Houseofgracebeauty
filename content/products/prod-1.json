@@ -1,0 +1,10 @@
+{
+  "id": "prod-1",
+  "image": "/product-hairfood.webp",
+  "name": "Grace Hair Growth Hairfood",
+  "tagline": "Nourish from root to tip",
+  "description": "A rich, nutrient-dense hair food packed with natural oils and vitamins that stimulate scalp health and encourage strong, healthy hair growth. Ideal for dry, brittle, or slow-growing hair.",
+  "badge": "Best Seller",
+  "treats": "Slow growth · Dryness · Brittleness",
+  "price": 180
+}

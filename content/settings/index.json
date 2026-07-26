@@ -1,0 +1,71 @@
+{
+  "phone": "074 468 0171",
+  "phoneIntl": "+27744680171",
+  "whatsapp": "27744680171",
+  "email": "info@houseofgracebeauty.co.za",
+  "address": "271 Outlook Terrace, Blackheath, Johannesburg",
+  "hours": [
+    {
+      "days": "Monday – Saturday",
+      "time": "7:00 am – 9:00 pm"
+    },
+    {
+      "days": "Sunday",
+      "time": "Closed"
+    }
+  ],
+  "freshaBookingUrl": "https://www.fresha.com/en-GB/a/house-of-grace-beauty-salon-johannesburg-271-outlook-terrace-blackheath-jy9bjjmb",
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "tiktok": ""
+  },
+  "googleRating": {
+    "rating": 4.8,
+    "totalReviews": 9
+  },
+  "concerns": [
+    {
+      "symptom": "My hair is thinning on top",
+      "start": "Follicle Fuel"
+    },
+    {
+      "symptom": "My edges are disappearing",
+      "start": "Edge Revival Treatment"
+    },
+    {
+      "symptom": "My hair never gets past a certain length",
+      "start": "HoneyMelt Treatment"
+    },
+    {
+      "symptom": "It snaps the moment I comb it",
+      "start": "Strength Fusion"
+    },
+    {
+      "symptom": "My hair is dry no matter what I use",
+      "start": "Moisture Lock"
+    },
+    {
+      "symptom": "My scalp flakes constantly",
+      "start": "Scalp Clarity Treatment"
+    },
+    {
+      "symptom": "My scalp itches and feels sore",
+      "start": "Scalp Soother"
+    },
+    {
+      "symptom": "There's build-up I can't wash out",
+      "start": "Scalp Detox & Exfoliation"
+    }
+  ],
+  "specialties": [
+    "Scalp Analysis & Consultation",
+    "Customised Hair & Scalp Treatments",
+    "Hair Growth Therapy",
+    "Hair Loss & Edge Restoration",
+    "Scalp Detox & Exfoliation",
+    "Moisture & Repair Treatments",
+    "Protective Styling for Healthy Hair",
+    "Grace Naturals Hair Care"
+  ]
+}
