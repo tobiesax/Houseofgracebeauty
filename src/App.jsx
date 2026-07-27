@@ -210,7 +210,7 @@ function Hero() {
               Your journey to healthy hair
             </span>
             <span
-              className="hero-line-2 block font-serif italic font-normal text-primary-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
+              className="hero-line-2 block font-serif italic font-normal text-accent text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
               style={{ lineHeight: '0.92' }}
             >
               starts here.
