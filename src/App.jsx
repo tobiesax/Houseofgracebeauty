@@ -463,13 +463,9 @@ function Portfolio() {
   // Proof first (before/afters), then the work itself, then styling as the payoff.
   const portfolio = [
     { id: 1, src: '/result-scalp-detox.jpg',        kind: 'Before / After', category: 'Scalp Detox',            alt: 'Before and after a scalp detox treatment clearing heavy flaking' },
-    { id: 2, src: '/result-hair-growth.jpg',        kind: 'Before / After', category: 'Hair Growth Therapy',    alt: 'Before and after hair growth therapy on a thinning crown' },
     { id: 3, src: '/result-flaking.jpg',            kind: 'Before / After', category: 'Dandruff & Flaking',     alt: 'Before and after treatment for a dry, flaking scalp' },
-    { id: 4, src: '/treatment-deep-cleanse.jpg',    kind: 'In the chair',   category: 'Scalp Exfoliation',      alt: 'Close-up of a cleansing treatment lathered through the scalp' },
     { id: 5, src: '/treatment-basin-rinse.jpg',     kind: 'In the chair',   category: 'Treatment Wash',         alt: 'Treatment being rinsed out at the salon basin' },
-    { id: 6, src: '/treatment-in-chair.jpg',        kind: 'In the chair',   category: 'Moisture & Repair',      alt: 'Client relaxing during a moisture and repair treatment' },
     { id: 7, src: '/home-care-botanical.jpg',       kind: 'At home',        category: 'Home Care Ritual',       alt: 'Client applying a botanical scalp oil at home' },
-    { id: 8, src: '/hog-1.jpg',                     kind: 'The payoff',     category: 'Protective Styling',     alt: 'Finished cornrow style on healthy, treated hair' },
   ]
 
   return (
