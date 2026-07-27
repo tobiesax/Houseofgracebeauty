@@ -27,6 +27,12 @@ import {
 import REVIEW_DATA from './data/reviews.json'
 import SETTINGS from '../content/settings/index.json'
 import { BLOG_POSTS, BLOG_CATEGORY_COLOR } from './lib/blog'
+import { SERVICES_FULL, SERVICE_CATEGORIES } from './lib/services'
+import { PRODUCTS } from './lib/products'
+
+// Services store their icon as a string (CMS-editable); this resolves it
+// back to the actual lucide-react component at render time.
+const SERVICE_ICONS = { Scissors, Sparkles, Gem, Leaf, Heart, SprayCan, ShieldCheck, Award }
 
 // Every "Book Now" CTA hands off to Fresha — she keeps her existing booking
 // workflow (calendar, deposits, reminders); the site's job is everything
@@ -44,85 +50,6 @@ const NAV_LINKS = [
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ]
-
-const SERVICES_FULL = [
-  // BRAIDS
-  { id: 1,  category: 'Braids', icon: Scissors, title: 'Braids Bra Length',               duration: '3 hr 15 min', price: 580, description: 'Excludes hairpiece' },
-  { id: 2,  category: 'Braids', icon: Scissors, title: 'Italian Braids',                  duration: '2 hr 30 min', price: 450, description: 'Excludes hairpiece' },
-  { id: 4,  category: 'Braids', icon: Scissors, title: "Feather's Braids",                duration: '2 hr 45 min', price: 550, description: 'Excludes hairpiece' },
-  { id: 5,  category: 'Braids', icon: Scissors, title: 'Braids Repair',                   duration: '2 hr',        price: 350, description: 'Includes undo and repair of all-round braids. Does not include a wash or hairpiece' },
-  { id: 6,  category: 'Braids', icon: Scissors, title: 'Bantu Knots',                     duration: '1 hr',        price: 300, description: 'Excludes hair' },
-  { id: 7,  category: 'Braids', icon: Scissors, title: 'Short French Braids',             duration: '3 hr 30 min', price: 480, description: 'Excludes hairpiece' },
-  { id: 8,  category: 'Braids', icon: Heart,    title: 'Cornrow for Kids',                duration: '1 hr',        price: 200, description: 'Kids cornrow styling' },
-  { id: 9,  category: 'Braids', icon: Heart,    title: 'Miracle Knots (Kids)',            duration: '4 hr',        price: 300, description: 'Excludes hairpiece' },
-  { id: 10, category: 'Braids', icon: Scissors, title: 'Miracle Knots',                   duration: '4 hr',        price: 500, description: 'Excludes hairpiece' },
-  { id: 11, category: 'Braids', icon: Scissors, title: 'Fulani Braids (Bum Length)',      duration: '2 hr 45 min', price: 600, description: 'Excludes hairpiece' },
-  { id: 12, category: 'Braids', icon: Scissors, title: 'Long Boho Braids (Waist)',        duration: '4 hr',        price: 650, description: 'Excluding hairpieces' },
-  { id: 13, category: 'Braids', icon: Scissors, title: 'Straight Up (Hip Length)',        duration: '3 hr',        price: 380, description: 'Excludes hairpiece' },
-  { id: 14, category: 'Braids', icon: Scissors, title: 'Braids (Waist Length)',           duration: '4 hr',        price: 680, description: 'Excludes hairpiece' },
-  { id: 15, category: 'Braids', icon: Scissors, title: 'Braids (Midback Length)',         duration: '3 hr 45 min', price: 580, description: 'Lightweight. Excludes hairpiece' },
-  { id: 16, category: 'Braids', icon: Scissors, title: 'Braids (Shoulder Length)',        duration: '3 hr',        price: 480, description: 'Lightweight. Excludes hairpiece' },
-  { id: 17, category: 'Braids', icon: Scissors, title: 'Braids Hip Length',               duration: '5 hr',        price: 750, description: 'Excluding hairpiece' },
-  { id: 18, category: 'Braids', icon: Scissors, title: 'Undo Braids and Wash',            duration: '1 hr 45 min', price: 280, description: 'Includes gentle removal and wash' },
-  { id: 19, category: 'Braids', icon: Scissors, title: 'Cornrow Undo',                   duration: '45 min',      price: 60,  description: 'Gentle cornrow removal' },
-  { id: 20, category: 'Braids', icon: Scissors, title: 'Milano Braids',                   duration: '2 hr 30 min', price: 450, description: 'Excludes hairpiece' },
-  { id: 21, category: 'Braids', icon: Scissors, title: 'Milano Braids Small',             duration: '2 hr 30 min', price: 550, description: 'Excludes hairpiece' },
-  { id: 22, category: 'Braids', icon: Scissors, title: 'Havana Braids',                   duration: '2 hr 30 min', price: 450, description: 'Excludes hairpiece' },
-  { id: 23, category: 'Braids', icon: Scissors, title: 'Fulani Braids (Medium)',          duration: '3 hr 30 min', price: 520, description: 'Excludes hairpiece' },
-  { id: 24, category: 'Braids', icon: Scissors, title: 'Tribal Braids (Bra Length)',      duration: '3 hr 30 min', price: 550, description: 'Excludes hairpiece. Come with yours or buy from us' },
-  { id: 25, category: 'Braids', icon: Scissors, title: 'Long French Braids',              duration: '4 hr 30 min', price: 650, description: 'Excludes hairpiece' },
-  { id: 26, category: 'Braids', icon: Scissors, title: 'French Braids Short (Boho)',      duration: '4 hr',        price: 500, description: 'Price excludes hairpiece. Come with yours or buy from us' },
-  { id: 27, category: 'Braids', icon: Scissors, title: 'Goddess Braids (Bum Long)',       duration: '3 hr 45 min', price: 650, description: 'Excluding hairpieces' },
-  { id: 28, category: 'Braids', icon: Scissors, title: 'Long Boho Braid (Bum)',           duration: '4 hr',        price: 680, description: 'Excluding hairpieces' },
-  { id: 29, category: 'Braids', icon: Scissors, title: 'Boho Braids (Short)',             duration: '3 hr',        price: 500, description: 'Excluding hairpieces' },
-  { id: 30, category: 'Braids', icon: Scissors, title: 'Half Moon (Boho) Bra Length',    duration: '2 hr 30 min', price: 550, description: 'Price excludes hairpiece' },
-  { id: 31, category: 'Braids', icon: Scissors, title: 'Half Singles / Half Moon Long',  duration: '3 hr 30 min', price: 600, description: 'Excludes hairpiece' },
-  { id: 32, category: 'Braids', icon: Scissors, title: 'Short Braids (Shoulder)',         duration: '2 hr 30 min', price: 450, description: 'Excludes hairpiece. Expressions at R60 or Darling at R40 available' },
-  { id: 33, category: 'Braids', icon: Scissors, title: 'Box Braids Medium (Bra Length)',  duration: '2 hr',        price: 400, description: 'Excludes hairpiece' },
-  { id: 34, category: 'Braids', icon: Scissors, title: 'Medium Braids (Bra Length)',      duration: '3 hr 30 min', price: 550, description: 'Excludes hairpiece' },
-  { id: 35, category: 'Braids', icon: Scissors, title: 'Straight Up',                    duration: '2 hr 30 min', price: 300, description: 'Excludes hairpiece' },
-  { id: 36, category: 'Braids', icon: Scissors, title: 'Straight Back',                   duration: '1 hr 30 min', price: 280, description: 'Excludes hairpiece' },
-  { id: 37, category: 'Braids', icon: Scissors, title: 'Braids Undo',                    duration: '1 hr',        price: 120, description: 'From ZAR 120. Price may vary' },
-  { id: 38, category: 'Braids', icon: Gem,      title: 'Wig Lines',                       duration: '30 min',      price: 150, description: 'Professional wig line application' },
-  { id: 39, category: 'Braids', icon: Scissors, title: 'Cornrow',                         duration: '45 min',      price: 180, description: 'Classic cornrow styling' },
-  // TWIST
-  { id: 40, category: 'Twist', icon: SprayCan, title: 'Small Twist',                      duration: '5 hr',        price: 850, description: 'Excludes hairpiece' },
-  { id: 41, category: 'Twist', icon: SprayCan, title: 'Medium Kinky Twist',               duration: '4 hr',        price: 550, description: 'Excludes hairpiece' },
-  { id: 42, category: 'Twist', icon: SprayCan, title: 'Yanky Twist',                      duration: '1 hr',        price: 950, description: 'A unique hairstyle for the busy woman. One hour and you\'re done. Service includes hairpiece' },
-  { id: 43, category: 'Twist', icon: SprayCan, title: 'Mini Twist',                       duration: '4 hr 30 min', price: 650, description: 'Excludes hairpiece' },
-  { id: 44, category: 'Twist', icon: SprayCan, title: 'Afro Twist (Short)',               duration: '3 hr 30 min', price: 450, description: 'Excludes hairpiece' },
-  { id: 45, category: 'Twist', icon: SprayCan, title: 'Short Twist (with Expressions)',   duration: '2 hr 45 min', price: 450, description: 'Price excludes hairpiece' },
-  { id: 46, category: 'Twist', icon: SprayCan, title: 'Twist Own Hair',                   duration: '1 hr 45 min', price: 300, description: 'Twist styling on natural hair' },
-  { id: 47, category: 'Twist', icon: SprayCan, title: 'Senegalese Twist',                 duration: '3 hr 30 min', price: 550, description: 'Excludes hairpiece' },
-  // WEAVE & SEW-IN
-  { id: 48, category: 'Weave & Sew-In', icon: Gem, title: 'Undo Weave',                  duration: '1 hr',        price: 100, description: 'Gentle weave removal' },
-  { id: 49, category: 'Weave & Sew-In', icon: Gem, title: 'Crochet',                     duration: '1 hr',        price: 450, description: 'Crochet hair installation' },
-  { id: 50, category: 'Weave & Sew-In', icon: Gem, title: 'Razor Cut',                   duration: '2 hr',        price: 450, description: 'Precision razor cut styling' },
-  { id: 51, category: 'Weave & Sew-In', icon: Gem, title: 'Weave',                       duration: '2 hr',        price: 450, description: 'Full weave installation' },
-  // TREATMENT
-  { id: 57, category: 'Treatment', icon: Leaf,     title: 'Consultation & Scalp Analysis', duration: '1 hr',       price: 150, description: 'Start here. A professional scalp assessment and personalised treatment plan — every other therapy is prescribed from this' },
-  { id: 52, category: 'Treatment', icon: Sparkles, title: 'Scalp Clarity Treatment',      duration: '1 hr',        price: 400, description: 'Gently cleanses and exfoliates the scalp, promoting healthy hair growth. Addresses dandruff, dryness and irritation' },
-  { id: 62, category: 'Treatment', icon: Sparkles, title: 'Follicle Fuel',                duration: '1 hr',        price: 350, description: 'Hair growth therapy. Rejuvenates dormant follicles to boost volume and thickness' },
-  { id: 61, category: 'Treatment', icon: Leaf,     title: 'Edge Revival Treatment',       duration: '1 hr',        price: 350, description: 'Focused on restoring thinning edges and fragile hairlines, including traction-related hair loss' },
-  { id: 60, category: 'Treatment', icon: Sparkles, title: 'Moisture Lock',                duration: '1 hr',        price: 350, description: 'Deeply hydrates and seals in moisture to stop dryness turning into breakage' },
-  { id: 59, category: 'Treatment', icon: Sparkles, title: 'Strength Fusion',              duration: '1 hr',        price: 350, description: 'Fortifies weak strands and rebuilds hair structure' },
-  { id: 58, category: 'Treatment', icon: Sparkles, title: 'HoneyMelt Treatment',          duration: '1 hr',        price: 380, description: 'Melts rich humectants into the hair shaft to rehydrate, improve elasticity, reduce breakage and restore shine. Ideal as a monthly moisture reset' },
-  { id: 55, category: 'Treatment', icon: Sparkles, title: 'Tension Tamer',                duration: '1 hr',        price: 350, description: 'Employs pressotherapy to relieve stress from tight hairstyles. Calms and soothes the scalp after braids or protective styles' },
-  { id: 56, category: 'Treatment', icon: Leaf,     title: 'Scalp Soother',                duration: '1 hr',        price: 350, description: 'An antiseptic treatment to soothe the scalp and allow it to breathe' },
-  { id: 53, category: 'Treatment', icon: Sparkles, title: 'Follicle Brightening Treatment', duration: '1 hr',      price: 350, description: 'Revitalizes scalp with noticeable brightness, enhancing natural hair shine and promoting healthy hair growth' },
-  { id: 54, category: 'Treatment', icon: Sparkles, title: 'Shine Sharpening Treatment',   duration: '1 hr',        price: 350, description: 'Restores vibrancy and shine for both natural and treated hair. Enhances colour depth and rejuvenates dull locks' },
-  { id: 63, category: 'Treatment', icon: Leaf,     title: 'Shrink Ease Treatment',        duration: '1 hr',        price: 350, description: 'Gently stretches natural curls and coils, reduces excessive shrinkage while keeping hair healthy, shiny and bouncy' },
-  // KIDS & SPECIALS
-  { id: 64, category: 'Kids & Specials', icon: Heart, title: 'Kiddies Wash n Blow',       duration: '1 hr',        price: 120, description: 'Gentle wash and blow-dry for children' },
-  { id: 65, category: 'Kids & Specials', icon: Heart, title: 'Kids Braids',               duration: '2 hr 45 min', price: 380, description: 'Excluding hairpiece' },
-  { id: 66, category: 'Kids & Specials', icon: Heart, title: 'Straight Up (with Hairpiece)', duration: '1 hr 45 min', price: 360, description: 'Including hairpiece' },
-  { id: 67, category: 'Kids & Specials', icon: Heart, title: 'Straight Up (Hair Alone)',  duration: '1 hr',        price: 200, description: 'Straight up styling using own hair' },
-  { id: 68, category: 'Kids & Specials', icon: Heart, title: 'Kids Kinky Afro (Cornrow & Bun)', duration: '1 hr 40 min', price: 280, description: 'Including hairpiece' },
-  { id: 69, category: 'Kids & Specials', icon: Sparkles, title: 'Conditioning Treatment', duration: '1 hr',        price: 300, description: 'Deep conditioning treatment for hair health and shine' },
-]
-
-// Treatment leads — the salon is treatment-based, styling follows the diagnosis.
-const SERVICE_CATEGORIES = ['Treatment', 'Braids', 'Twist', 'Weave & Sew-In', 'Kids & Specials']
 
 /* ----------------------------------------------------------------
    Navbar
@@ -315,11 +242,11 @@ function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="tel:+27744680171"
+              href={`tel:${SETTINGS.contact.phoneIntl}`}
               className="lift-on-hover inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 font-medium px-7 py-4 rounded-full"
             >
               <Phone className="h-4 w-4" />
-              074 468 0171
+              {SETTINGS.contact.phone}
             </a>
           </div>
         </div>
@@ -338,29 +265,12 @@ function Hero() {
 ---------------------------------------------------------------- */
 // Phrased the way clients actually describe it, paired with where the
 // analysis usually leads. Removes the "I don't know what to book" barrier.
-const CONCERNS = [
-  { symptom: 'My hair is thinning on top',               start: 'Follicle Fuel' },
-  { symptom: 'My edges are disappearing',                start: 'Edge Revival Treatment' },
-  { symptom: 'My hair never gets past a certain length', start: 'HoneyMelt Treatment' },
-  { symptom: 'It snaps the moment I comb it',            start: 'Strength Fusion' },
-  { symptom: 'My hair is dry no matter what I use',      start: 'Moisture Lock' },
-  { symptom: 'My scalp flakes constantly',               start: 'Scalp Clarity Treatment' },
-  { symptom: 'My scalp itches and feels sore',           start: 'Scalp Soother' },
-  { symptom: "There's build-up I can't wash out",        start: 'Scalp Detox & Exfoliation' },
-]
+// Editable by Grace via the CMS — see content/settings/index.json.
+const CONCERNS = SETTINGS.concerns
 
 // Scope at a glance only. The detail lives in the concerns ledger above it,
 // the Process section, and the Services menu — no need to tell it a fourth time.
-const SPECIALTIES = [
-  'Scalp Analysis & Consultation',
-  'Customised Hair & Scalp Treatments',
-  'Hair Growth Therapy',
-  'Hair Loss & Edge Restoration',
-  'Scalp Detox & Exfoliation',
-  'Moisture & Repair Treatments',
-  'Protective Styling for Healthy Hair',
-  'Grace Naturals Hair Care',
-]
+const SPECIALTIES = SETTINGS.specialties
 
 const CONCERNS_PREVIEW = 4
 
@@ -1098,7 +1008,7 @@ function ServicesGrid({ cartItems, addToCart }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-px bg-white/8 rounded-4xl overflow-hidden">
           {visibleServices.map((svc) => {
-            const Icon = svc.icon
+            const Icon = SERVICE_ICONS[svc.icon] || Scissors
             const isInCart = cartItems.some((item) => item.id === svc.id)
             return (
               <div key={svc.id} className="svc-tile group bg-deep p-7 sm:p-9 hover:bg-white/[0.03] transition-colors duration-500 relative border border-white/5 hover:border-primary/30">
@@ -1252,41 +1162,6 @@ function GoogleReviews() {
 /* ----------------------------------------------------------------
    Products
 ---------------------------------------------------------------- */
-const PRODUCTS = [
-  {
-    id: 'prod-1',
-    image: '/product-hairfood.webp',
-    name: 'Grace Hair Growth Hairfood',
-    tagline: 'Nourish from root to tip',
-    description:
-      'A rich, nutrient-dense hair food packed with natural oils and vitamins that stimulate scalp health and encourage strong, healthy hair growth. Ideal for dry, brittle, or slow-growing hair.',
-    badge: 'Best Seller',
-    treats: 'Slow growth · Dryness · Brittleness',
-    price: 180,
-  },
-  {
-    id: 'prod-2',
-    image: '/product-hair-oil.webp',
-    name: 'Grace Hair Oil',
-    tagline: 'Shine, strength & softness',
-    description:
-      'A lightweight yet deeply nourishing hair oil that tames frizz, adds brilliant shine, and strengthens each strand. Perfect for sealing in moisture after wash day or refreshing your style between appointments.',
-    badge: 'Fan Favourite',
-    treats: 'Moisture loss · Frizz · Breakage',
-    price: 180,
-  },
-  {
-    id: 'prod-3',
-    image: '/product-pores-treatment.webp',
-    name: 'Pores Awakening Treatment',
-    tagline: 'Revive your scalp',
-    description:
-      'A targeted scalp treatment designed to unclog pores, remove build-up, and awaken dormant follicles. Formulated with active botanical extracts to restore balance and create the ideal environment for hair growth.',
-    badge: 'New Arrival',
-    treats: 'Build-up · Flaking · Dormant follicles',
-    price: 380,
-  },
-]
 
 function Products({ addToCart, cartItems }) {
   const ref = useRef(null)
@@ -1678,7 +1553,7 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
             )}
 
             <div className="mt-10 space-y-4">
-              <a href="tel:+27744680171" className="lift-on-hover flex items-center gap-4 group">
+              <a href={`tel:${SETTINGS.contact.phoneIntl}`} className="lift-on-hover flex items-center gap-4 group">
                 <span className="h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition">
                   <Phone className="h-5 w-5 text-primary group-hover:text-white" />
                 </span>
@@ -1688,13 +1563,13 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                 </span>
               </a>
 
-              <a href="mailto:info@houseofgracebeauty.co.za" className="lift-on-hover flex items-center gap-4 group">
+              <a href={`mailto:${SETTINGS.contact.email}`} className="lift-on-hover flex items-center gap-4 group">
                 <span className="h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition">
                   <Mail className="h-5 w-5 text-primary group-hover:text-white" />
                 </span>
                 <span>
                   <span className="block font-mono text-[10px] uppercase tracking-widest text-muted">Email us</span>
-                  <span className="font-display font-medium text-ink text-lg">info@houseofgracebeauty.co.za</span>
+                  <span className="font-display font-medium text-ink text-lg">{SETTINGS.contact.email}</span>
                 </span>
               </a>
 
@@ -1704,15 +1579,16 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                 </span>
                 <span>
                   <span className="block font-mono text-[10px] uppercase tracking-widest text-muted">Location</span>
-                  <span className="font-display font-medium text-ink text-lg">271 Outlook Terrace, Blackheath, Johannesburg</span>
+                  <span className="font-display font-medium text-ink text-lg">{SETTINGS.contact.address}</span>
                 </span>
               </div>
             </div>
 
             <div className="mt-8 p-4 rounded-3xl bg-primary/5 border border-primary/15">
               <p className="font-mono text-[10px] uppercase tracking-widest text-primary-dark mb-1">Hours</p>
-              <p className="text-sm text-muted leading-relaxed">Monday – Saturday · 7:00 am – 9:00 pm</p>
-              <p className="text-sm text-muted leading-relaxed mt-1">Sunday · Closed</p>
+              {SETTINGS.hours.map((h) => (
+                <p key={h.days} className="text-sm text-muted leading-relaxed mt-1 first:mt-0">{h.days} · {h.time}</p>
+              ))}
             </div>
           </div>
 
@@ -1847,22 +1723,22 @@ function Footer() {
               therapies, and protective styling that protects.
             </p>
             <p className="font-mono text-[10px] uppercase tracking-widest text-white/25 mt-6">
-              271 Outlook Terrace, Blackheath, Johannesburg
+              {SETTINGS.contact.address}
             </p>
             <div className="flex items-center gap-3 mt-6">
-              <a href="#" aria-label="Facebook" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
+              <a href={SETTINGS.social.facebook || '#'} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white/70" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
                 </svg>
               </a>
-              <a href="#" aria-label="Instagram" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
+              <a href={SETTINGS.social.instagram || '#'} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-white/70" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <circle cx="12" cy="12" r="4"/>
                   <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
                 </svg>
               </a>
-              <a href="#" aria-label="TikTok" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
+              <a href={SETTINGS.social.tiktok || '#'} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white/70" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.78a8.18 8.18 0 004.79 1.52V6.83a4.85 4.85 0 01-1.02-.14z"/>
                 </svg>
@@ -1873,7 +1749,7 @@ function Footer() {
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-light mb-4">Specialties</p>
             <ul className="space-y-2.5">
-              {SPECIALTIES.slice(0, 5).map((title) => (
+              {SETTINGS.specialties.slice(0, 5).map((title) => (
                 <li key={title}>
                   <a href="#specialties" className="text-white/60 hover:text-primary-light transition text-sm">{title}</a>
                 </li>
@@ -1896,11 +1772,12 @@ function Footer() {
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-light mb-4">Get in Touch</p>
             <ul className="space-y-2.5">
               <li>
-                <a href="tel:+27744680171" className="text-white/60 hover:text-primary-light transition text-sm">074 468 0171</a>
+                <a href={`tel:${SETTINGS.contact.phoneIntl}`} className="text-white/60 hover:text-primary-light transition text-sm">{SETTINGS.contact.phone}</a>
               </li>
-              <li className="text-white/55 text-sm">271 Outlook Terrace</li>
-              <li className="text-white/55 text-sm">Blackheath, Johannesburg</li>
-              <li className="text-white/60 text-sm">Mon–Sat · 7am–9pm</li>
+              <li className="text-white/55 text-sm">{SETTINGS.contact.address}</li>
+              {SETTINGS.hours.map((h) => (
+                <li key={h.days} className="text-white/60 text-sm">{h.days} · {h.time}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -2096,7 +1973,7 @@ const FAQ = [
   },
   {
     keywords: ['thank', 'thanks', 'cheers', 'appreciate', 'great', 'perfect'],
-    answer: "You're welcome! 💕 Is there anything else I can help you with? You can also WhatsApp us directly on 0744680171.",
+    answer: `You're welcome! 💕 Is there anything else I can help you with? You can also WhatsApp us directly on ${SETTINGS.contact.phone}.`,
   },
   {
     keywords: ['scalp analysis', 'analysis', 'assessment', 'diagnos', 'first visit', 'what happens'],
@@ -2128,15 +2005,15 @@ const FAQ = [
   },
   {
     keywords: ['book', 'appointment', 'reserve', 'schedule', 'how to book', 'booking'],
-    answer: "To book: select services in the Services section → add to booking cart → fill in your preferred date and time in the Contact section. Or WhatsApp us on 0744680171 and we'll sort you out! 💕",
+    answer: `To book: select services in the Services section → add to booking cart → fill in your preferred date and time in the Contact section. Or WhatsApp us on ${SETTINGS.contact.phone} and we'll sort you out! 💕`,
   },
   {
     keywords: ['location', 'where', 'address', 'johannesburg', 'find you', 'directions', 'based'],
-    answer: 'We are at 271 Outlook Terrace, Blackheath, Johannesburg. Call or WhatsApp 0744680171 if you need directions 💕',
+    answer: `We are at ${SETTINGS.contact.address}. Call or WhatsApp ${SETTINGS.contact.phone} if you need directions 💕`,
   },
   {
     keywords: ['hour', 'open', 'close', 'trading', 'when are you', 'time', 'operating'],
-    answer: 'We are open Monday to Saturday, 7:00 am – 9:00 pm. Closed Sundays. Call or WhatsApp 0744680171 to confirm availability for your slot.',
+    answer: `We are open Monday to Saturday, 7:00 am – 9:00 pm. Closed Sundays. Call or WhatsApp ${SETTINGS.contact.phone} to confirm availability for your slot.`,
   },
   {
     keywords: ['product', 'hairfood', 'hair food', 'hair oil', 'buy', 'shop', 'purchase', 'pores', 'grace naturals', 'home care', 'aftercare'],
@@ -2144,7 +2021,7 @@ const FAQ = [
   },
   {
     keywords: ['pay', 'payment', 'cash', 'card', 'eft', 'deposit', 'method'],
-    answer: 'We accept cash and EFT. A deposit may be required for certain bookings. Contact us on 0744680171 to confirm.',
+    answer: `We accept cash and EFT. A deposit may be required for certain bookings. Contact us on ${SETTINGS.contact.phone} to confirm.`,
   },
   {
     keywords: ['hairpiece', 'hair piece', 'extension', 'bring', 'own hair', 'include', 'exclude'],
@@ -2168,11 +2045,11 @@ const FAQ = [
   },
   {
     keywords: ['whatsapp', 'contact', 'phone', 'call', 'number', 'reach', 'email', 'message'],
-    answer: 'You can reach us on:\n📱 WhatsApp / Phone: 0744680171\nOr fill in the Contact form on the site and we will get back to you shortly 💕',
+    answer: `You can reach us on:\n📱 WhatsApp / Phone: ${SETTINGS.contact.phone}\nOr fill in the Contact form on the site and we will get back to you shortly 💕`,
   },
   {
     keywords: ['consultation', 'advice', 'recommend', 'suggest', 'best for', 'natural hair', 'not sure', 'which one'],
-    answer: "That is exactly what the Consultation & Scalp Analysis is for (ZAR 150, 1 hour). Grace assesses your hair and scalp, then recommends the right treatment and style for you. Book via the Contact section or WhatsApp 0744680171 💕",
+    answer: `That is exactly what the Consultation & Scalp Analysis is for (ZAR 150, 1 hour). Grace assesses your hair and scalp, then recommends the right treatment and style for you. Book via the Contact section or WhatsApp ${SETTINGS.contact.phone} 💕`,
   },
 ]
 
@@ -2181,7 +2058,7 @@ function getBotReply(text) {
   for (const item of FAQ) {
     if (item.keywords.some((kw) => lower.includes(kw))) return item.answer
   }
-  return "I'm not sure about that one — but our team will know! WhatsApp us on 0744680171 or fill in the Contact form and we'll get back to you quickly 💕"
+  return `I'm not sure about that one — but our team will know! WhatsApp us on ${SETTINGS.contact.phone} or fill in the Contact form and we'll get back to you quickly 💕`
 }
 
 function ChatBot() {
@@ -2455,7 +2332,7 @@ export default function App() {
 
       {/* WhatsApp floating button */}
       <a
-        href="https://wa.me/27744680171"
+        href={`https://wa.me/${SETTINGS.contact.whatsapp}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-24 right-6 z-50 flex items-center justify-center h-14 w-14 rounded-full shadow-xl hover:scale-110 active:scale-95 transition-transform duration-200"

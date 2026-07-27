@@ -5,5 +5,6 @@
   "title": "Undo Weave",
   "duration": "1 hr",
   "price": 100,
-  "description": "Gentle weave removal"
+  "description": "Gentle weave removal",
+  "order": 46
 }

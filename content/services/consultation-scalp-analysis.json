@@ -5,5 +5,6 @@
   "title": "Consultation & Scalp Analysis",
   "duration": "1 hr",
   "price": 150,
-  "description": "Start here. A professional scalp assessment and personalised treatment plan — every other therapy is prescribed from this"
+  "description": "Start here. A professional scalp assessment and personalised treatment plan — every other therapy is prescribed from this",
+  "order": 50
 }

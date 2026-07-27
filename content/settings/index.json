@@ -1,9 +1,11 @@
 {
-  "phone": "074 468 0171",
-  "phoneIntl": "+27744680171",
-  "whatsapp": "27744680171",
-  "email": "info@houseofgracebeauty.co.za",
-  "address": "271 Outlook Terrace, Blackheath, Johannesburg",
+  "contact": {
+    "phone": "074 468 0171",
+    "phoneIntl": "+27744680171",
+    "whatsapp": "27744680171",
+    "email": "info@houseofgracebeauty.co.za",
+    "address": "271 Outlook Terrace, Blackheath, Johannesburg"
+  },
   "hours": [
     {
       "days": "Monday – Saturday",

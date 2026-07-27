@@ -5,5 +5,6 @@
   "title": "Follicle Fuel",
   "duration": "1 hr",
   "price": 350,
-  "description": "Hair growth therapy. Rejuvenates dormant follicles to boost volume and thickness"
+  "description": "Hair growth therapy. Rejuvenates dormant follicles to boost volume and thickness",
+  "order": 52
 }

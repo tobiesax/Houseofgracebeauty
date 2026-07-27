@@ -50,6 +50,7 @@ export default defineConfig({
           { type: 'string', name: 'duration', label: 'Duration', description: 'e.g. "1 hr" or "2 hr 30 min"' },
           { type: 'number', name: 'price', label: 'Price (ZAR)', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
+          { type: 'number', name: 'order', label: 'Display order', description: 'Lower numbers show first within the category. Leave alone unless you want to reorder.' },
           { type: 'number', name: 'id', label: 'Internal ID', description: 'Do not change — used to track bookings.' },
         ],
       },

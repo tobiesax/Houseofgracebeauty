@@ -5,5 +5,6 @@
   "title": "Strength Fusion",
   "duration": "1 hr",
   "price": 350,
-  "description": "Fortifies weak strands and rebuilds hair structure"
+  "description": "Fortifies weak strands and rebuilds hair structure",
+  "order": 55
 }
