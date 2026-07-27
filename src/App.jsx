@@ -244,7 +244,7 @@ function Hero() {
           </p>
           <h1 className="font-display font-semibold text-white leading-[0.95] tracking-tight">
             <span className="hero-line-1 block text-4xl sm:text-6xl md:text-7xl">
-              Your Journey Start Here.
+              Your Journey To Healthy Hair
             </span>
             <span
               className="hero-line-2 block font-serif italic font-normal text-yellow-400 text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
