@@ -469,6 +469,7 @@ function Portfolio() {
     { id: 10, src: '/result-silk-press.jpg',         kind: 'The payoff',     category: 'Silk Press',             alt: 'Sleek, healthy silk press finish' },
     { id: 11, src: '/result-kids-braids.jpg',        kind: 'The payoff',     category: 'Kids Braids',            alt: 'Finished kids braided style, top view' },
     { id: 12, src: '/result-braided-updo.jpg',       kind: 'The payoff',     category: 'Braided Updo',           alt: 'Finished braided updo with curled ponytail' },
+    { id: 13, src: '/result-braids-pink-accent.jpg', kind: 'The payoff',     category: 'Colour Braids',           alt: 'Finished box braids with pink colour accents' },
   ]
 
   return (
