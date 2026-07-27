@@ -42,6 +42,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
+  { label: 'Specialties', href: '#specialties' },
   { label: 'Process', href: '#process' },
   { label: 'Services', href: '#services' },
   { label: 'Products', href: '#products' },
@@ -243,6 +244,75 @@ function Hero() {
         <div className="absolute bottom-8 right-6 sm:right-12 hidden md:flex flex-col items-center gap-2 text-white/50">
           <span className="font-mono uppercase text-[10px] tracking-[0.3em]">Scroll</span>
           <div className="h-8 w-px bg-gradient-to-b from-white/50 to-transparent" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ----------------------------------------------------------------
+   Specialties — scope strip only (no intro copy, no ledger)
+---------------------------------------------------------------- */
+function Specialties() {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setVisible(true); observer.disconnect() }
+      },
+      { threshold: 0.08 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="specialties" ref={ref} className="relative py-10 sm:py-14 px-6 sm:px-10 lg:px-16 bg-background overflow-hidden">
+      <div className="absolute -top-24 right-0 h-80 w-80 rounded-full bg-primary/8 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 -left-24 h-64 w-64 rounded-full bg-accent/8 blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <div
+          className={`transition-all duration-1000 ease-out ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark flex-shrink-0 lg:w-44 lg:pt-1">
+              ╱ Our specialties
+            </span>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5 flex-1">
+              {SETTINGS.specialties.map((title) => (
+                <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
+                  <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
+                  {title}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <a
+            href={FRESHA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-xl shadow-primary/30"
+          >
+            Start with a scalp analysis
+            <ArrowRight className="h-4 w-4" />
+          </a>
+          <a
+            href="#process"
+            className="lift-on-hover inline-flex items-center gap-2 border border-divider text-ink font-medium px-7 py-3.5 rounded-full hover:border-primary/40 transition-colors"
+          >
+            See how it works
+            <ArrowUpRight className="h-4 w-4 text-primary" />
+          </a>
         </div>
       </div>
     </section>
@@ -1560,7 +1630,7 @@ function Footer() {
             <ul className="space-y-2.5">
               {SETTINGS.specialties.slice(0, 5).map((title) => (
                 <li key={title}>
-                  <a href="#services" className="text-white/60 hover:text-primary-light transition text-sm">{title}</a>
+                  <a href="#specialties" className="text-white/60 hover:text-primary-light transition text-sm">{title}</a>
                 </li>
               ))}
             </ul>
@@ -2110,6 +2180,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Specialties />
         <MeetCEO />
         <Portfolio />
         <Pillars />
