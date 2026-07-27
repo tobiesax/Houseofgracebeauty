@@ -223,27 +223,10 @@ function Hero() {
             <span className="text-white"> Every plan begins with a professional scalp analysis</span> — never guesswork.
           </p>
 
-          <div className="hero-meta mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/75">
-            <span>Rooted in Africa</span>
-            <span className="h-1 w-1 rounded-full bg-primary" />
-            <span>Inspired by Nature</span>
-            <span className="h-1 w-1 rounded-full bg-primary" />
-            <span className="text-white">Driven by Healthy Hair</span>
-          </div>
-
           <div className="hero-cta mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={FRESHA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="magnetic-btn group inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-7 py-4 rounded-full shadow-2xl shadow-primary/40"
-            >
-              Book Your Scalp Analysis
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a
               href={`tel:${SETTINGS.contact.phoneIntl}`}
-              className="lift-on-hover inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 font-medium px-7 py-4 rounded-full"
+              className="magnetic-btn inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-7 py-4 rounded-full shadow-2xl shadow-primary/40"
             >
               <Phone className="h-4 w-4" />
               {SETTINGS.contact.phone}
