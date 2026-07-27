@@ -336,13 +336,23 @@ function Specialties() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6">
+        <div
+          className={`mt-10 flex flex-col gap-6 transition-all duration-1000 ease-out delay-200 ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">
             ╱ Our specialties
           </span>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5">
-            {SETTINGS.specialties.map((title) => (
-              <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
+            {SETTINGS.specialties.map((title, i) => (
+              <li
+                key={title}
+                style={{ transitionDelay: visible ? `${300 + i * 80}ms` : '0ms' }}
+                className={`flex items-start gap-2.5 text-ink text-[15px] leading-snug transition-all duration-700 ease-out ${
+                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+                }`}
+              >
                 <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
                 {title}
               </li>
