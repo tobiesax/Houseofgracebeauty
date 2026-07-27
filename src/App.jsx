@@ -299,17 +299,15 @@ function Specialties() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-3 text-center">
-          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-dark">
+        <div className="mt-10 flex flex-col gap-6">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">
             ╱ Our specialties
           </span>
-          <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 max-w-2xl">
-            {SETTINGS.specialties.map((title, i) => (
-              <li key={title} className="flex items-center gap-2">
-                <span className="text-muted text-sm">{title}</span>
-                {i < SETTINGS.specialties.length - 1 && (
-                  <span className="h-1 w-1 rounded-full bg-primary/50" />
-                )}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5">
+            {SETTINGS.specialties.map((title) => (
+              <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
+                <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
+                {title}
               </li>
             ))}
           </ul>
