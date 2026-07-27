@@ -11,6 +11,7 @@ const branch =
 
 const ICONS = [
   'Scissors', 'Sparkles', 'Gem', 'Leaf', 'Heart', 'SprayCan', 'ShieldCheck', 'Award',
+  'ScanSearch', 'Droplet', 'Droplets', 'Sprout', 'Sunrise', 'Dumbbell', 'Flame', 'Feather', 'Wind', 'Waves',
 ]
 
 export default defineConfig({

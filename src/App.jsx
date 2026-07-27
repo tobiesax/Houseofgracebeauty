@@ -21,6 +21,16 @@ import {
   X,
   Upload,
   Bot,
+  ScanSearch,
+  Droplet,
+  Sprout,
+  Sunrise,
+  Droplets,
+  Dumbbell,
+  Flame,
+  Feather,
+  Wind,
+  Waves,
 } from 'lucide-react'
 
 import REVIEW_DATA from './data/reviews.json'
@@ -30,8 +40,12 @@ import { SERVICES_FULL, SERVICE_CATEGORIES } from './lib/services'
 import { PRODUCTS } from './lib/products'
 
 // Services store their icon as a string (CMS-editable); this resolves it
-// back to the actual lucide-react component at render time.
-const SERVICE_ICONS = { Scissors, Sparkles, Gem, Leaf, Heart, SprayCan, ShieldCheck, Award }
+// back to the actual lucide-react component at render time. Each Treatment
+// service got its own distinct icon (was 2 icons reused across 12 items).
+const SERVICE_ICONS = {
+  Scissors, Sparkles, Gem, Leaf, Heart, SprayCan, ShieldCheck, Award,
+  ScanSearch, Droplet, Sprout, Sunrise, Droplets, Dumbbell, Flame, Feather, Wind, Waves,
+}
 
 // Every "Book Now" CTA hands off to Fresha — she keeps her existing booking
 // workflow (calendar, deposits, reminders); the site's job is everything
