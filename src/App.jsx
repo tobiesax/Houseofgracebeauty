@@ -281,11 +281,11 @@ function Specialties() {
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark flex-shrink-0 lg:w-44 lg:pt-1">
+          <div className="flex flex-col gap-6">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">
               ╱ Our specialties
             </span>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5 flex-1">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5">
               {SETTINGS.specialties.map((title) => (
                 <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
                   <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
