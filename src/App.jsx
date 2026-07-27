@@ -755,7 +755,7 @@ function Protocol() {
       tagline: 'The results have to last.',
       text: 'You leave with a written routine and the Grace Naturals products to follow it. We set a review point so we can measure real progress — growth, thickness, reduced shedding — and adjust your plan as your hair changes.',
       image: '/home-ritual-wash.jpg',
-      alt: 'Client washing her hair at home as part of her routine',
+      alt: 'Home treatment product applied through natural hair as part of the aftercare routine',
       meta: 'Step 3 / Maintain',
     },
   ]
