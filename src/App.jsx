@@ -8,7 +8,6 @@ import {
   MapPin,
   ArrowUpRight,
   ArrowRight,
-  ChevronDown,
   CheckCircle2,
   ShieldCheck,
   Award,
@@ -43,7 +42,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'Specialties', href: '#specialties' },
   { label: 'Process', href: '#process' },
   { label: 'Services', href: '#services' },
   { label: 'Products', href: '#products' },
@@ -219,8 +217,7 @@ function Hero() {
           </h1>
 
           <p className="hero-meta mx-auto max-w-xl text-white/70 text-base sm:text-lg mt-8 leading-relaxed">
-            Specialists in African braids, African hair, scalp wellness, and customised treatment.
-            <span className="text-white"> Every plan begins with a professional scalp analysis</span> — never guesswork.
+            Specialists in African braids, African hair, scalp wellness, hair growth plans, and customised treatment.
           </p>
 
           <div className="hero-cta mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -246,186 +243,6 @@ function Hero() {
         <div className="absolute bottom-8 right-6 sm:right-12 hidden md:flex flex-col items-center gap-2 text-white/50">
           <span className="font-mono uppercase text-[10px] tracking-[0.3em]">Scroll</span>
           <div className="h-8 w-px bg-gradient-to-b from-white/50 to-transparent" />
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ----------------------------------------------------------------
-   Specialties — the value proposition
----------------------------------------------------------------- */
-// Phrased the way clients actually describe it, paired with where the
-// analysis usually leads. Removes the "I don't know what to book" barrier.
-// Editable by Grace via the CMS — see content/settings/index.json.
-const CONCERNS = SETTINGS.concerns
-
-// Scope at a glance only. The detail lives in the concerns ledger above it,
-// the Process section, and the Services menu — no need to tell it a fourth time.
-const SPECIALTIES = SETTINGS.specialties
-
-const CONCERNS_PREVIEW = 4
-
-function Specialties() {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-  const [showAllConcerns, setShowAllConcerns] = useState(false)
-  const visibleConcerns = showAllConcerns ? CONCERNS : CONCERNS.slice(0, CONCERNS_PREVIEW)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) { setVisible(true); observer.disconnect() }
-      },
-      { threshold: 0.08 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <section id="specialties" ref={ref} className="relative py-10 sm:py-14 px-6 sm:px-10 lg:px-16 bg-background overflow-hidden">
-      <div className="absolute -top-24 right-0 h-80 w-80 rounded-full bg-primary/8 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 -left-24 h-64 w-64 rounded-full bg-accent/8 blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-14 sm:mb-16">
-          <div className="lg:col-span-7">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ What we specialise in</span>
-            <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight">
-              Rooted in Africa.
-              <span className="block font-serif italic font-normal text-primary-dark mt-1">Driven by healthy hair.</span>
-            </h2>
-          </div>
-
-          <div className="lg:col-span-5 space-y-5 text-muted text-base sm:text-[17px] leading-relaxed">
-            <p>
-              We specialise in African hair, scalp wellness, and customised treatment therapies designed to
-              <span className="text-ink"> restore, strengthen, and nourish your hair from the roots.</span>
-            </p>
-            <p>
-              Using carefully selected botanical ingredients and African-inspired hair care traditions, we help you
-              achieve stronger roots, healthier strands, and lasting confidence.
-            </p>
-          </div>
-        </div>
-
-        {/* Concerns we treat — symptom in the client's words, mapped to a starting point */}
-        <div
-          className={`rounded-5xl border border-divider bg-surface shadow-sm overflow-hidden mb-12 transition-all duration-1000 ease-out ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          <div className="p-7 sm:p-10 border-b border-divider flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div>
-              <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Sound familiar?</span>
-              <h3 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-ink mt-3 leading-[1.08] tracking-tight">
-                You don't need to know what's wrong.
-                <span className="block font-serif italic font-normal text-primary-dark mt-1">That's our job.</span>
-              </h3>
-            </div>
-            <p className="text-muted text-[15px] leading-relaxed max-w-xs lg:text-right flex-shrink-0">
-              The eight reasons clients walk through our door — and where the analysis usually leads.
-            </p>
-          </div>
-
-          <ul>
-            {visibleConcerns.map((c, i) => (
-              <li
-                key={c.symptom}
-                className="group border-b border-divider hover:bg-primary/[0.04] transition-colors duration-300"
-              >
-                <div className="px-6 sm:px-10 py-5 sm:grid sm:grid-cols-12 sm:items-center sm:gap-4">
-                  <div className="flex items-start gap-4 sm:col-span-7">
-                    <span className="font-mono text-[10px] text-muted tabular-nums pt-2 flex-shrink-0">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    <p className="font-serif italic text-ink text-lg sm:text-xl leading-snug">
-                      “{c.symptom}”
-                    </p>
-                  </div>
-                  <div className="mt-2.5 sm:mt-0 sm:col-span-5 flex items-center gap-2.5 pl-8 sm:pl-0">
-                    <ArrowRight className="h-3.5 w-3.5 text-primary flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-                    <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-primary-dark">
-                      {c.start}
-                    </span>
-                  </div>
-                </div>
-              </li>
-            ))}
-
-            <li>
-              <button
-                onClick={() => setShowAllConcerns((v) => !v)}
-                aria-expanded={showAllConcerns}
-                className="group w-full px-6 sm:px-10 py-4 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.15em] text-primary-dark hover:bg-primary/[0.04] transition-colors duration-300"
-              >
-                {showAllConcerns
-                  ? 'Show less'
-                  : `${CONCERNS.length - CONCERNS_PREVIEW} more reasons clients come to us`}
-                <ChevronDown
-                  className={`h-3.5 w-3.5 transition-transform duration-300 ${showAllConcerns ? 'rotate-180' : 'group-hover:translate-y-0.5'}`}
-                />
-              </button>
-            </li>
-          </ul>
-
-          <div className="px-6 sm:px-10 py-6 bg-primary/[0.04] border-t border-divider flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <p className="text-muted text-sm leading-relaxed">
-              Not on the list? Bring it anyway — that is what the analysis is for.
-            </p>
-            <a
-              href={FRESHA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="magnetic-btn inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-6 py-3 rounded-full shadow-lg shadow-primary/25 flex-shrink-0"
-            >
-              Book a scalp analysis · R150
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-
-        {/* Scope strip — breadth at a glance, no repetition of the detail above */}
-        <div
-          className={`border-t border-divider pt-9 transition-all duration-1000 delay-200 ease-out ${
-            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-        >
-          <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-14">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark flex-shrink-0 lg:w-44 lg:pt-1">
-              ╱ Our specialties
-            </span>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5 flex-1">
-              {SPECIALTIES.map((title) => (
-                <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
-                  <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
-                  {title}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-          <a
-            href={FRESHA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-xl shadow-primary/30"
-          >
-            Start with a scalp analysis
-            <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="#process"
-            className="lift-on-hover inline-flex items-center gap-2 border border-divider text-ink font-medium px-7 py-3.5 rounded-full hover:border-primary/40 transition-colors"
-          >
-            See how it works
-            <ArrowUpRight className="h-4 w-4 text-primary" />
-          </a>
         </div>
       </div>
     </section>
@@ -1743,7 +1560,7 @@ function Footer() {
             <ul className="space-y-2.5">
               {SETTINGS.specialties.slice(0, 5).map((title) => (
                 <li key={title}>
-                  <a href="#specialties" className="text-white/60 hover:text-primary-light transition text-sm">{title}</a>
+                  <a href="#services" className="text-white/60 hover:text-primary-light transition text-sm">{title}</a>
                 </li>
               ))}
             </ul>
@@ -2293,7 +2110,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Specialties />
         <MeetCEO />
         <Portfolio />
         <Pillars />
