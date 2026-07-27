@@ -208,13 +208,13 @@ function Hero() {
           </p>
           <h1 className="font-display font-semibold text-white leading-[0.95] tracking-tight">
             <span className="hero-line-1 block text-4xl sm:text-6xl md:text-7xl">
-              Every crown deserves
+              Your journey to healthy hair
             </span>
             <span
               className="hero-line-2 block font-serif italic font-normal text-primary-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
               style={{ lineHeight: '0.92' }}
             >
-              expert care.
+              starts here.
             </span>
           </h1>
 
@@ -1520,8 +1520,8 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
           <div className="lg:col-span-5">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Contact</span>
             <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight">
-              Your healthy hair
-              <span className="block font-serif italic font-normal text-primary-dark">journey starts here.</span>
+              Let's find
+              <span className="block font-serif italic font-normal text-primary-dark">your starting point.</span>
             </h2>
             <p className="text-muted text-lg mt-6 leading-relaxed max-w-md">
               Tell us what your hair is doing — the shedding, the flaking, the edges, the breakage. We'll book you in
