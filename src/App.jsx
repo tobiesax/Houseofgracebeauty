@@ -391,20 +391,19 @@ function MeetCEO() {
 
             <div className="mt-8 space-y-5 text-muted text-base sm:text-[17px] leading-relaxed">
               <p>
-                House Of Grace was born from a belief that most salons get the order wrong — they style first and
-                ask questions later. Grace built this space to work the other way around: understand the scalp,
-                treat what is actually happening, then style on a healthy foundation.
+                My journey taught me that no two heads of hair are the same. I watched people copy hairstyles that
+                weren't suitable for their own hair density, leading to unnecessary breakage, thinning, and
+                disappointment. That inspired me to develop House Of Grace Beauty differently.
               </p>
               <p>
-                That approach came from years of seeing the same problems walk through the door — thinning edges from
-                styles installed too tight, breakage blamed on genetics, dandruff treated with the wrong products for
-                years. So she trained deeper, studied African hair and scalp health specifically, and built a
-                treatment menu around causes rather than symptoms.
+                Over the years, I created and refined 22 specialised botanical treatments, together with my Grace
+                Naturals products, to help different scalp conditions and hair needs. Every client receives care
+                that's tailored to their unique hair — not based on trends, but on what their hair truly needs.
               </p>
               <p>
-                Today every client starts with a professional scalp analysis, and every treatment recommendation is
-                one she can explain. Combining botanical ingredients with African-inspired hair care traditions, the
-                standard is simple: your hair should leave healthier than it arrived.
+                Our goal is simple: healthy hair first, beautiful styling second — then we can follow trends. Whether
+                you're struggling with breakage, thinning edges, dryness, dandruff, or simply want stronger, healthier
+                hair, we're committed to helping your natural hair thrive while giving you styles you'll love.
               </p>
             </div>
 
