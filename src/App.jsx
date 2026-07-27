@@ -219,14 +219,23 @@ function Hero() {
           </h1>
 
           <p className="hero-meta mx-auto max-w-xl text-white/70 text-base sm:text-lg mt-8 leading-relaxed">
-            Specialists in African hair, scalp wellness, and customised treatment therapies.
+            Specialists in African braids, African hair, scalp wellness, and customised treatment.
             <span className="text-white"> Every plan begins with a professional scalp analysis</span> — never guesswork.
           </p>
 
           <div className="hero-cta mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a
+              href={FRESHA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="magnetic-btn group inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-7 py-4 rounded-full shadow-2xl shadow-primary/40"
+            >
+              Book Your Scalp Analysis
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+            <a
               href={`tel:${SETTINGS.contact.phoneIntl}`}
-              className="magnetic-btn inline-flex items-center justify-center gap-2 bg-primary text-white font-medium px-7 py-4 rounded-full shadow-2xl shadow-primary/40"
+              className="lift-on-hover inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 font-medium px-7 py-4 rounded-full"
             >
               <Phone className="h-4 w-4" />
               {SETTINGS.contact.phone}
