@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://houseofgracebeauty.co.za/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://houseofgracebeauty.co.za/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -14,5 +19,35 @@
     <loc>https://houseofgracebeauty.co.za/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/5-proven-tips-for-faster-hair-growth-backed-by-science-and-salon-experience</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/coloured-hair-survival-guide-how-to-keep-your-colour-vibrant-without-wrecking-your-hair</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/deep-conditioning-the-one-treatment-your-hair-absolutely-cannot-skip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/hair-porosity-understanding-it-will-change-your-entire-hair-care-routine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/protective-styles-that-actually-protect-what-your-stylist-wants-you-to-know</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://houseofgracebeauty.co.za/blog/the-scalp-truth-why-ignoring-this-is-the-reason-your-hair-is-not-growing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

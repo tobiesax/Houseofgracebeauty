@@ -78,7 +78,7 @@ export default defineConfig({
         path: 'content/blog',
         format: 'json',
         ui: {
-          router: () => '/#blog',
+          router: ({ document }) => `/blog/${document._sys.filename}`,
         },
         fields: [
           { type: 'string', name: 'title', label: 'Title', isTitle: true, required: true },

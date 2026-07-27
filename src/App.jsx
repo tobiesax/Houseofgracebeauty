@@ -26,6 +26,7 @@ import {
 
 import REVIEW_DATA from './data/reviews.json'
 import SETTINGS from '../content/settings/index.json'
+import { BLOG_POSTS, BLOG_CATEGORY_COLOR } from './lib/blog'
 
 // Every "Book Now" CTA hands off to Fresha — she keeps her existing booking
 // workflow (calendar, deposits, reminders); the site's job is everything
@@ -40,7 +41,7 @@ const NAV_LINKS = [
   { label: 'Process', href: '#process' },
   { label: 'Services', href: '#services' },
   { label: 'Products', href: '#products' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -160,17 +161,16 @@ function Navbar() {
           </a>
 
           <div className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium tracking-tight lift-on-hover ${
-                  scrolled ? 'text-ink/70 hover:text-primary' : 'text-white/90 hover:text-white'
-                } transition-colors`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const cls = `text-sm font-medium tracking-tight lift-on-hover ${
+                scrolled ? 'text-ink/70 hover:text-primary' : 'text-white/90 hover:text-white'
+              } transition-colors`
+              return link.href.startsWith('#') ? (
+                <a key={link.href} href={link.href} className={cls}>{link.label}</a>
+              ) : (
+                <Link key={link.href} to={link.href} className={cls}>{link.label}</Link>
+              )
+            })}
           </div>
 
           <a
@@ -212,16 +212,14 @@ function Navbar() {
             </button>
           </div>
           <div className="flex flex-col gap-1">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="font-display text-3xl font-medium text-ink py-3 border-b border-divider"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const cls = "font-display text-3xl font-medium text-ink py-3 border-b border-divider"
+              return link.href.startsWith('#') ? (
+                <a key={link.href} href={link.href} onClick={() => setOpen(false)} className={cls}>{link.label}</a>
+              ) : (
+                <Link key={link.href} to={link.href} onClick={() => setOpen(false)} className={cls}>{link.label}</Link>
+              )
+            })}
           </div>
           <a
             href={FRESHA_URL}
@@ -1407,106 +1405,12 @@ function Products({ addToCart, cartItems }) {
 }
 
 /* ----------------------------------------------------------------
-   Blog
+   Blog — homepage teaser. Full reading experience lives at /blog and
+   /blog/:slug, each with its own URL, title, meta and structured data.
 ---------------------------------------------------------------- */
-const BLOG_POSTS = [
-  {
-    id: 1,
-    category: 'Hair Treatment',
-    readTime: '5 min read',
-    date: 'May 2026',
-    title: 'Deep Conditioning: The One Treatment Your Hair Absolutely Cannot Skip',
-    excerpt:
-      'Deep conditioning is not a luxury — it is the foundation of every healthy hair care routine. As a professional stylist, the number one issue I see in clients with dry, brittle, or over-processed hair is a chronic lack of moisture. Here is what the science says, and what you need to start doing right now.',
-    body: [
-      'Deep conditioning works by penetrating the cortex of the hair shaft, replacing lost proteins and moisture that everyday styling, heat, and environmental stress strip away. Unlike regular conditioners that coat the surface, a quality deep conditioner actually restructures damaged strands from within.',
-      'For natural hair, I recommend deep conditioning every 7–10 days using a product rich in shea butter, argan oil, or keratin. Apply to freshly washed hair in sections, cover with a plastic cap, and sit under a hooded dryer for 20–30 minutes. The heat opens the cuticle and allows maximum absorption.',
-      'For relaxed or colour-treated hair, the frequency increases. These hair types have a compromised cuticle and need consistent moisture replenishment to avoid breakage. Incorporate a protein treatment once a month alongside your moisture treatments to maintain that critical protein-moisture balance.',
-      'The biggest mistake I see? Clients using heat on dry hair without conditioning first. Always condition before you style, and your hair will reward you with strength, shine, and length retention.',
-    ],
-  },
-  {
-    id: 2,
-    category: 'Hair Growth',
-    readTime: '6 min read',
-    date: 'April 2026',
-    title: '5 Proven Tips for Faster Hair Growth — Backed by Science and Salon Experience',
-    excerpt:
-      'Everyone wants longer hair, but very few people understand what actually drives growth. After over a decade working with all hair types, I have seen what works and what is just marketing. Here are the five changes that consistently deliver real results for my clients.',
-    body: [
-      '1. Scalp health is everything. Your scalp is the soil your hair grows from. A congested, inflamed, or dry scalp will stunt growth no matter what products you use. Massage your scalp for 4–5 minutes daily to stimulate circulation and remove build-up. Our Pores Awakening Treatment was formulated specifically for this.',
-      '2. Protein is non-negotiable. Hair is made of keratin — a protein. If your diet is low in protein, your body will deprioritise hair growth. Include eggs, lentils, chicken, and leafy greens in your daily meals. Combine dietary protein with a keratin-based treatment every 4–6 weeks.',
-      '3. Protective styles retain length. Growth happens continuously, but breakage cancels it out. Box braids, cornrows, and wigs give your ends a break from daily manipulation. Just ensure your edges and scalp are moisturised underneath — never install a protective style on a dry or stressed scalp.',
-      '4. Sleep on satin. Cotton pillowcases create friction that causes breakage, tangles, and moisture loss overnight. A satin pillowcase or bonnet is one of the cheapest and most effective investments you can make for your hair.',
-      '5. Be consistent with oil sealing. After moisturising with a water-based leave-in, seal with a lightweight oil like our Grace Hair Oil to lock in that hydration. Moisture that evaporates cannot support growth.',
-    ],
-  },
-  {
-    id: 3,
-    category: 'Protective Styles',
-    readTime: '4 min read',
-    date: 'March 2026',
-    title: 'Protective Styles That Actually Protect: What Your Stylist Wants You to Know',
-    excerpt:
-      'Not all protective styles are created equal. In fact, a poorly installed protective style can cause more damage than wearing your hair out. As someone who installs hundreds of braids, weaves, and twists every year, here is my honest advice.',
-    body: [
-      'The purpose of a protective style is to tuck away your ends and reduce daily manipulation — allowing your hair to retain length and recover from stress. But the installation, the duration, and the care routine in between are what determine whether you come out ahead or set back.',
-      'Tension is the number one enemy. If your scalp is sore after installation, that style is too tight. Traction alopecia — hair loss along the hairline caused by constant pulling — is one of the most common issues I treat. Always speak up during installation. A skilled stylist will never dismiss your discomfort.',
-      'Keep your scalp moisturised throughout. Use a lightweight oil or scalp spray every 2–3 days under your braids or weave. A dry scalp flakes, itches, and eventually causes damage. Our Grace Hair Oil works beautifully for this — a few drops massaged in at the roots is all you need.',
-      'Six to eight weeks is the maximum for most protective styles. Beyond that, the new growth and the extension begin to tangle around each other, and removal becomes damaging. When you take the style down, deep condition immediately and give your hair a two-week break before reinstalling.',
-    ],
-  },
-  {
-    id: 4,
-    category: 'Hair Health',
-    readTime: '5 min read',
-    date: 'February 2026',
-    title: 'Hair Porosity: Understanding It Will Change Your Entire Hair Care Routine',
-    excerpt:
-      'Porosity is the most important thing about your hair that most people have never heard of. Once you understand yours, every product choice becomes clearer and your hair will respond in ways that feel almost magical.',
-    body: [
-      'Hair porosity refers to how well your hair absorbs and retains moisture. It is determined by the structure of your cuticle — the outer layer of each strand. There are three types: low, normal, and high porosity, and each needs a completely different approach.',
-      'Low porosity hair has tightly sealed cuticles that resist moisture absorption. Products sit on top rather than penetrating. The fix: use heat when conditioning (warm towel or hooded dryer), choose lightweight liquid-based products, and avoid heavy butters that will just build up on the surface.',
-      'High porosity hair — often caused by chemical processing, heat damage, or genetics — absorbs moisture quickly but loses it just as fast. This hair feels rough, tangles easily, and dries quickly after washing. The fix: protein treatments to fill in the gaps in the cuticle, heavier sealants like shea butter, and always finish with a cold rinse to close the cuticle.',
-      'Normal porosity hair is the sweet spot — it absorbs and retains moisture well and requires the least intervention. Maintain it with regular deep conditioning and minimal heat. To find your porosity, drop a clean strand into a glass of water. If it floats, low porosity. If it sinks slowly, normal. If it sinks immediately, high porosity.',
-    ],
-  },
-  {
-    id: 5,
-    category: 'Scalp Care',
-    readTime: '4 min read',
-    date: 'January 2026',
-    title: 'The Scalp Truth: Why Ignoring This Is the Reason Your Hair Is Not Growing',
-    excerpt:
-      'I have had clients spend thousands on hair products and see zero results — because they were treating their strands while completely neglecting their scalp. Your scalp is a living ecosystem, and it needs as much attention as your skin.',
-    body: [
-      'Think of your scalp the way you think of facial skin. It produces sebum, it sheds dead cells, it can become inflamed, congested, or dehydrated. When it is out of balance, hair growth slows, shedding increases, and no amount of length-retaining tricks will compensate.',
-      'Washing frequency matters more than most people realise. Washing too infrequently leads to product and sebum build-up that clogs follicles and creates an environment where bacteria and fungus thrive. For most hair types, once a week is ideal. Scalp-only washing mid-week is a great option for those who protective style.',
-      'Scalp massages are free and deeply effective. Four minutes of firm circular pressure daily increases blood flow to the follicles, delivering the oxygen and nutrients they need to produce healthy hair. Do it in the shower while shampooing, or apply our Grace Hair Growth Hairfood and massage it in before bed.',
-      'Watch for these warning signs that your scalp needs professional attention: persistent itching, flaking, redness, tenderness, or thinning at the hairline. These are not just inconveniences — they are signals. Come in for a scalp consultation and we will identify the root cause and build a targeted treatment plan for you.',
-    ],
-  },
-  {
-    id: 6,
-    category: 'Colour Care',
-    readTime: '5 min read',
-    date: 'December 2025',
-    title: 'Coloured Hair Survival Guide: How to Keep Your Colour Vibrant Without Wrecking Your Hair',
-    excerpt:
-      'Colour is one of the most transformative things you can do for your hair — but it comes with responsibility. After years of restoring chemically damaged hair in the salon, I have seen what happens when colour care is neglected. Here is how to protect your investment.',
-    body: [
-      'The biggest mistake I see is clients treating their coloured hair exactly the same as before the service. Colour — whether it is a full bleach, a tint, or a semi-permanent — changes the internal structure of the hair shaft. The cuticle is lifted during the process, which means moisture escapes more easily and the hair becomes more vulnerable to breakage and fading.',
-      'Start with the right shampoo. Sulphate-free is non-negotiable for coloured hair. Sulphates strip colour molecules from the cortex with every wash, cutting your vibrancy lifespan in half. Washing in cool or lukewarm water makes an equally significant difference — hot water lifts the cuticle and lets colour bleed out faster than anything else.',
-      "Deep conditioning is your colour's best friend. Coloured hair needs moisture replenishment at least once a week. Look for treatments that contain keratin, argan oil, or amino acids — these smooth the cuticle back down, locking in both moisture and pigment. Our Grace Hair Growth Hairfood works beautifully as a pre-shampoo treatment on colour-treated hair, sealing and softening before you cleanse.",
-      'Sun exposure fades colour faster than you might expect — UV rays break down the dye molecules, especially on lighter shades. A UV-protective hair mist or wearing a hat in direct sun extends your colour significantly. Come back to us every 6–8 weeks for a gloss or toning treatment to refresh and maintain vibrancy between full colour appointments. Healthy colour and healthy hair are not a compromise — with the right routine, you can have both.',
-    ],
-  },
-]
-
 function Blog() {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
-  const [expanded, setExpanded] = useState(null)
 
   useEffect(() => {
     const el = ref.current
@@ -1521,45 +1425,46 @@ function Blog() {
     return () => observer.disconnect()
   }, [])
 
-  const categoryColor = {
-    'Hair Treatment': 'bg-primary/10 text-primary-dark',
-    'Hair Growth': 'bg-emerald-50 text-emerald-700',
-    'Protective Styles': 'bg-accent/10 text-accent-dark',
-    'Hair Health': 'bg-teal-50 text-teal-700',
-    'Scalp Care': 'bg-sky-50 text-sky-700',
-  }
+  const featured = BLOG_POSTS.slice(0, 3)
 
   return (
     <section id="blog" ref={ref} className="relative py-8 sm:py-10 px-6 sm:px-10 lg:px-16 bg-background overflow-hidden">
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 h-64 w-[40rem] rounded-full bg-primary/6 blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="max-w-2xl mb-10 sm:mb-14">
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Expert insights</span>
-          <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight">
-            Hair wisdom,
-            <span className="block font-serif italic font-normal text-primary-dark mt-1">straight from the chair.</span>
-          </h2>
-          <p className="text-muted text-base sm:text-lg mt-4 leading-relaxed max-w-xl">
-            Specialist advice on hair health, growth, and care — written by Grace Omoruan with over a decade of hands-on experience.
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-14">
+          <div className="max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Expert insights</span>
+            <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight">
+              Hair wisdom,
+              <span className="block font-serif italic font-normal text-primary-dark mt-1">straight from the chair.</span>
+            </h2>
+            <p className="text-muted text-base sm:text-lg mt-4 leading-relaxed max-w-xl">
+              Specialist advice on hair health, growth, and care — written by Grace Omoruan with over a decade of hands-on experience.
+            </p>
+          </div>
+          <Link
+            to="/blog"
+            className="lift-on-hover inline-flex items-center gap-2 border border-divider text-ink font-medium px-6 py-3 rounded-full hover:border-primary/40 transition-colors flex-shrink-0"
+          >
+            View all articles
+            <ArrowUpRight className="h-4 w-4 text-primary" />
+          </Link>
         </div>
 
-        {/* Blog cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {BLOG_POSTS.map((post, i) => (
-            <article
-              key={post.id}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featured.map((post, i) => (
+            <Link
+              key={post.slug}
+              to={`/blog/${post.slug}`}
               style={{ transitionDelay: visible ? `${i * 100}ms` : '0ms' }}
               className={`group flex flex-col bg-surface border border-divider rounded-5xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/8 hover:border-primary/25 transition-all duration-700 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              {/* Card top — category + meta */}
-              <div className="p-6 sm:p-7 pb-0">
+              <div className="p-6 sm:p-7">
                 <div className="flex items-center justify-between mb-4">
-                  <span className={`font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${categoryColor[post.category] || 'bg-primary/10 text-primary-dark'}`}>
+                  <span className={`font-mono text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full ${BLOG_CATEGORY_COLOR[post.category] || 'bg-primary/10 text-primary-dark'}`}>
                     {post.category}
                   </span>
                   <span className="font-mono text-[10px] text-muted uppercase tracking-widest">{post.readTime}</span>
@@ -1573,46 +1478,23 @@ function Blog() {
                 </p>
               </div>
 
-              {/* Expandable body */}
-              {expanded === post.id && (
-                <div className="px-6 sm:px-7 pt-4 space-y-3">
-                  {post.body.map((para, idx) => (
-                    <p key={idx} className="text-muted text-sm leading-relaxed">{para}</p>
-                  ))}
-                </div>
-              )}
-
-              {/* Card bottom — author + read more */}
               <div className="mt-auto p-6 sm:p-7 pt-5 flex items-center justify-between border-t border-divider/60">
-                {/* Author */}
                 <div className="flex items-center gap-3">
                   <div className="h-9 w-9 rounded-full overflow-hidden border-2 border-primary/20 flex-shrink-0">
-                    <img src="/grace-ceo.webp" alt="Grace Omoruan" className="w-full h-full object-cover object-top" />
+                    <img src="/grace-ceo.webp" alt="" className="w-full h-full object-cover object-top" />
                   </div>
                   <div>
                     <p className="font-display font-medium text-ink text-sm leading-tight">Grace Omoruan</p>
                     <p className="font-mono text-[9px] uppercase tracking-widest text-muted">Professional Hair Consultant</p>
                   </div>
                 </div>
-
-                {/* Read more / collapse */}
-                <button
-                  onClick={() => setExpanded(expanded === post.id ? null : post.id)}
-                  className="lift-on-hover flex items-center gap-1.5 text-primary-dark font-mono text-[10px] uppercase tracking-widest hover:text-primary transition-colors"
-                >
-                  {expanded === post.id ? 'Close' : 'Read'}
-                  <ArrowRight className={`h-3 w-3 transition-transform duration-300 ${expanded === post.id ? 'rotate-90' : ''}`} />
-                </button>
+                <span className="flex items-center gap-1.5 text-primary-dark font-mono text-[10px] uppercase tracking-widest">
+                  Read
+                  <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
-        </div>
-
-        {/* Date strip */}
-        <div className="mt-10 flex items-center justify-center gap-2">
-          <span className="h-px w-12 bg-divider" />
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted">Published 2026 · House Of Grace</span>
-          <span className="h-px w-12 bg-divider" />
         </div>
       </div>
     </section>
