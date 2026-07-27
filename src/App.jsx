@@ -618,11 +618,11 @@ function Pillars() {
     {
       n: '01', title: 'Diagnosis first',
       target: 100, suffix: '%', label: 'of plans begin with analysis',
-      desc: 'We never recommend a treatment before assessing your scalp. Your plan is built on what we actually find — not on what we happen to sell.',
+      desc: 'Nothing is recommended before we\'ve actually looked. Your plan comes from what we find on your scalp — never from what\'s easiest to sell.',
     },
     {
       n: '02', title: 'Treatment depth',
-      target: 12, suffix: '+', label: 'targeted therapies',
+      target: 22, suffix: '+', label: 'targeted therapies',
       desc: 'Scalp detox, follicle fuel, edge revival, moisture lock, strength fusion and more — a specific therapy for every concern we treat.',
     },
     {
@@ -742,8 +742,8 @@ function Protocol() {
       title: 'Customised Treatment',
       tagline: 'Your plan, not a template.',
       text: 'Based on your analysis we select the right therapy — scalp detox, follicle fuel, edge revival, moisture lock, strength fusion. Natural, science-backed formulations, applied with technique specific to African hair.',
-      image: '/treatment-application.jpg',
-      alt: 'Treatment being combed through the hair at the basin',
+      video: '/treatment-application.mp4',
+      alt: 'Treatment being combed through the scalp',
       meta: 'Step 2 / Restore',
     },
     {
@@ -798,7 +798,19 @@ function Protocol() {
               </div>
 
               <div className="lg:col-span-2 relative overflow-hidden min-h-[300px] lg:min-h-full bg-deep">
-                <img src={step.image} alt={step.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                {step.video ? (
+                  <video
+                    src={step.video}
+                    aria-label={step.alt}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <img src={step.image} alt={step.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-deep/15" />
                 <div className="absolute top-5 left-5 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full pl-3 pr-4 py-1.5 shadow-lg">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
