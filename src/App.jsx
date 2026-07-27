@@ -462,10 +462,13 @@ function Portfolio() {
 
   // Proof first (before/afters), then the work itself, then styling as the payoff.
   const portfolio = [
-    { id: 1, src: '/result-scalp-detox.jpg',        kind: 'Before / After', category: 'Scalp Detox',            alt: 'Before and after a scalp detox treatment clearing heavy flaking' },
-    { id: 9, src: '/result-hairline-recovery.jpg',  kind: 'Before / After', category: 'Scalp Recovery',         alt: 'Before and after treatment for a stressed, thinning hairline' },
-    { id: 5, src: '/treatment-basin-rinse.jpg',     kind: 'In the chair',   category: 'Treatment Wash',         alt: 'Treatment being rinsed out at the salon basin' },
-    { id: 7, src: '/home-care-botanical.jpg',       kind: 'At home',        category: 'Home Care Ritual',       alt: 'Client applying a botanical scalp oil at home' },
+    { id: 1,  src: '/result-scalp-detox.jpg',        kind: 'Before / After', category: 'Scalp Detox',            alt: 'Before and after a scalp detox treatment clearing heavy flaking' },
+    { id: 9,  src: '/result-hairline-recovery.jpg',  kind: 'Before / After', category: 'Scalp Recovery',         alt: 'Before and after treatment for a stressed, thinning hairline' },
+    { id: 5,  src: '/treatment-basin-rinse.jpg',     kind: 'In the chair',   category: 'Treatment Wash',         alt: 'Treatment being rinsed out at the salon basin' },
+    { id: 7,  src: '/home-care-botanical.jpg',       kind: 'At home',        category: 'Home Care Ritual',       alt: 'Client applying a botanical scalp oil at home' },
+    { id: 10, src: '/result-silk-press.jpg',         kind: 'The payoff',     category: 'Silk Press',             alt: 'Sleek, healthy silk press finish' },
+    { id: 11, src: '/result-kids-braids.jpg',        kind: 'The payoff',     category: 'Kids Braids',            alt: 'Finished kids braided style, top view' },
+    { id: 12, src: '/result-braided-updo.jpg',       kind: 'The payoff',     category: 'Braided Updo',           alt: 'Finished braided updo with curled ponytail' },
   ]
 
   return (
