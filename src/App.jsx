@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -180,8 +180,17 @@ function Navbar() {
 /* ----------------------------------------------------------------
    Hero
 ---------------------------------------------------------------- */
+function subscribeToMotionPreference(onChange) {
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  mq.addEventListener('change', onChange)
+  return () => mq.removeEventListener('change', onChange)
+}
+
+const getAllowsMotion = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 function Hero() {
   const heroRef = useRef(null)
+  const allowMotion = useSyncExternalStore(subscribeToMotionPreference, getAllowsMotion, () => true)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -195,11 +204,24 @@ function Hero() {
   return (
     <section id="home" ref={heroRef} className="relative min-h-[100dvh] w-full overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src="/treatment-hero.jpg"
-          alt="Client receiving a scalp treatment at House Of Grace"
-          className="w-full h-full object-cover"
-        />
+        {allowMotion ? (
+          <video
+            src="/hero-video.mp4"
+            poster="/hero-video-poster.jpg"
+            aria-label="Client receiving a scalp treatment at House Of Grace"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src="/hero-video-poster.jpg"
+            alt="Client receiving a scalp treatment at House Of Grace"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-br from-deep/90 via-deep/55 to-primary-dark/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-deep via-deep/20 to-transparent" />
       </div>
