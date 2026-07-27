@@ -206,11 +206,11 @@ function Hero() {
             ✦ Blackheath, Johannesburg
           </p>
           <h1 className="font-display font-semibold text-white leading-[0.95] tracking-tight">
-            <span className="hero-line-1 block text-4xl sm:text-6xl md:text-7xl">
+            <span className="hero-line-1 block uppercase text-4xl sm:text-6xl md:text-7xl">
               Your journey to healthy hair
             </span>
             <span
-              className="hero-line-2 block font-serif italic font-normal text-accent text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
+              className="hero-line-2 block font-serif italic font-normal text-yellow-400 text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
               style={{ lineHeight: '0.92' }}
             >
               starts here.
