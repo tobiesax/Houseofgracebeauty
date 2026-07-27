@@ -238,12 +238,13 @@ function Hero() {
 
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center text-center">
         <div className="px-6 sm:px-10 lg:px-16 max-w-5xl">
-          <p className="hero-meta font-mono text-xs uppercase tracking-[0.3em] text-white/60 mb-6">
-            ✦ Blackheath, Johannesburg
+          <p className="hero-meta flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-white/60 mb-6">
+            <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.75)]" />
+            Blackheath, Johannesburg
           </p>
           <h1 className="font-display font-semibold text-white leading-[0.95] tracking-tight">
-            <span className="hero-line-1 block uppercase text-4xl sm:text-6xl md:text-7xl">
-              Your journey to healthy hair
+            <span className="hero-line-1 block text-4xl sm:text-6xl md:text-7xl">
+              Your Journey Start Here.
             </span>
             <span
               className="hero-line-2 block font-serif italic font-normal text-yellow-400 text-5xl sm:text-7xl md:text-8xl lg:text-9xl mt-2"
