@@ -91,10 +91,10 @@ function Navbar() {
               <span className="absolute inset-0 rounded-full ring-1 ring-primary/20 group-hover:ring-primary/50 transition" />
             </span>
             <span className="flex flex-col leading-tight">
-              <span className={`font-display font-semibold tracking-tight text-base ${scrolled ? 'text-ink' : 'text-white'} transition-colors`}>
+              <span className={`font-display font-semibold tracking-tight text-base ${scrolled ? 'text-primary-dark' : 'text-white'} transition-colors`}>
                 House Of Grace
               </span>
-              <span className={`font-body font-normal text-[11px] tracking-wide text-center ${scrolled ? 'text-muted' : 'text-white/70'} transition-colors`}>
+              <span className={`font-body font-normal text-[11px] tracking-wide text-center ${scrolled ? 'text-primary-dark/70' : 'text-white/70'} transition-colors`}>
                 Beauty Salon
               </span>
             </span>
