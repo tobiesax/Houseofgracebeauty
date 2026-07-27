@@ -277,26 +277,10 @@ function Specialties() {
 
       <div className="relative max-w-7xl mx-auto">
         <div
-          className={`transition-all duration-1000 ease-out ${
+          className={`flex flex-col sm:flex-row items-center justify-center gap-4 text-center transition-all duration-1000 ease-out ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}
         >
-          <div className="flex flex-col gap-6">
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">
-              ╱ Our specialties
-            </span>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-3.5">
-              {SETTINGS.specialties.map((title) => (
-                <li key={title} className="flex items-start gap-2.5 text-ink text-[15px] leading-snug">
-                  <span className="mt-[0.55rem] h-1 w-1 rounded-full bg-primary flex-shrink-0" />
-                  {title}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <a
             href={FRESHA_URL}
             target="_blank"
@@ -313,6 +297,22 @@ function Specialties() {
             See how it works
             <ArrowUpRight className="h-4 w-4 text-primary" />
           </a>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-3 text-center">
+          <span className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary-dark">
+            ╱ Our specialties
+          </span>
+          <ul className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 max-w-2xl">
+            {SETTINGS.specialties.map((title, i) => (
+              <li key={title} className="flex items-center gap-2">
+                <span className="text-muted text-sm">{title}</span>
+                {i < SETTINGS.specialties.length - 1 && (
+                  <span className="h-1 w-1 rounded-full bg-primary/50" />
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
