@@ -1,6 +1,7 @@
 {
-  "id": "prod-2",
-  "image": "/product-hair-oil.webp",
+  "itemId": "prod-2",
+  "image": "/product-hair-oil-1.webp",
+  "gallery": ["/product-hair-oil-1.webp", "/product-hair-oil-2.webp"],
   "name": "Grace Hair Oil",
   "tagline": "Shine, strength & softness",
   "description": "A lightweight yet deeply nourishing hair oil that tames frizz, adds brilliant shine, and strengthens each strand. Perfect for sealing in moisture after wash day or refreshing your style between appointments.",

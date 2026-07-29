@@ -809,15 +809,26 @@ function Protocol() {
   return (
     <section id="process" ref={containerRef} className="relative px-4 sm:px-6 py-10">
       <div className="max-w-7xl mx-auto mb-16 px-2 sm:px-10">
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Your healthy hair journey</span>
+        <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Our Treatment Philosophy</span>
         <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight max-w-3xl">
-          Analyse. Treat. Maintain.
-          <span className="block font-serif italic font-normal text-primary-dark">No guesswork.</span>
+          Rooted in African wisdom,
+          <span className="block font-serif italic font-normal text-primary-dark">refined through experience.</span>
         </h2>
-        <p className="text-muted text-lg mt-6 leading-relaxed max-w-xl">
-          Our treatment-based approach follows the same three steps for every client — because a plan built on a
-          proper diagnosis is the only kind that holds.
-        </p>
+        <div className="text-muted text-lg mt-6 leading-relaxed max-w-xl space-y-4">
+          <p>
+            Rooted in African wisdom and refined through years of hands-on experience, our treatment philosophy is
+            built on understanding that every scalp, hair density, and crown is unique.
+          </p>
+          <p>
+            Through personalised scalp assessments, we carefully identify your hair and scalp needs before
+            recommending the right natural, seed-based treatment and suitable low-tension protective styles,
+            including crochet options where appropriate.
+          </p>
+          <p>
+            Our approach combines nature, experience, and intentional care to help protect the scalp, reduce
+            unnecessary tension, strengthen the hair, and support healthier growth from the roots.
+          </p>
+        </div>
       </div>
 
       <div className="space-y-8">
@@ -944,9 +955,9 @@ function ServicesGrid({ cartItems, addToCart }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-px bg-white/8 rounded-4xl overflow-hidden">
           {visibleServices.map((svc) => {
             const Icon = SERVICE_ICONS[svc.icon] || Scissors
-            const isInCart = cartItems.some((item) => item.id === svc.id)
+            const isInCart = cartItems.some((item) => item.id === svc.itemId)
             return (
-              <div key={svc.id} className="svc-tile group bg-deep p-7 sm:p-9 hover:bg-white/[0.03] transition-colors duration-500 relative border border-white/5 hover:border-primary/30">
+              <div key={svc.itemId} className="svc-tile group bg-deep p-7 sm:p-9 hover:bg-white/[0.03] transition-colors duration-500 relative border border-white/5 hover:border-primary/30">
                 <div className="flex items-start justify-between mb-4">
                   <div className="h-12 w-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
                     <Icon className="h-5 w-5 text-primary-light group-hover:text-white" strokeWidth={2} />
@@ -1098,6 +1109,36 @@ function GoogleReviews() {
    Products
 ---------------------------------------------------------------- */
 
+// Crossfades through `images` on a continuous loop when there's more than
+// one; otherwise just renders the single photo. Layers are stacked with
+// absolute positioning so the fade has no layout shift.
+function ProductImage({ images, alt, className }) {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    if (images.length < 2) return
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % images.length)
+    }, 2800)
+    return () => clearInterval(id)
+  }, [images])
+
+  return (
+    <>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={alt}
+          className={`${className} absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            i === active ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+    </>
+  )
+}
+
 function Products({ addToCart, cartItems }) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
@@ -1139,7 +1180,7 @@ function Products({ addToCart, cartItems }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {PRODUCTS.map((product, i) => (
             <article
-              key={product.id}
+              key={product.itemId}
               style={{ transitionDelay: visible ? `${i * 120}ms` : '0ms' }}
               className={`group bg-surface border border-divider rounded-5xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-700 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -1147,8 +1188,8 @@ function Products({ addToCart, cartItems }) {
             >
               {/* Product image */}
               <div className="relative overflow-hidden bg-gradient-to-br from-[#F7F1FB] to-[#EFE5F5] aspect-square">
-                <img
-                  src={product.image}
+                <ProductImage
+                  images={product.gallery?.length > 1 ? product.gallery : [product.image]}
                   alt={product.name}
                   className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                 />
@@ -1180,7 +1221,7 @@ function Products({ addToCart, cartItems }) {
                     R{product.price}
                   </span>
                   {(() => {
-                    const inCart = cartItems && cartItems.some((item) => item.id === product.id)
+                    const inCart = cartItems && cartItems.some((item) => item.id === product.itemId)
                     return (
                       <button
                         onClick={() => addToCart && addToCart(product)}
@@ -2202,9 +2243,9 @@ export default function App() {
 
   const addToCart = (service) => {
     setCartItems((prev) => {
-      const exists = prev.find((item) => item.id === service.id)
-      if (exists) return prev.filter((item) => item.id !== service.id)
-      return [...prev, { id: service.id, title: service.title, price: service.price, duration: service.duration }]
+      const exists = prev.find((item) => item.id === service.itemId)
+      if (exists) return prev.filter((item) => item.id !== service.itemId)
+      return [...prev, { id: service.itemId, title: service.title, price: service.price, duration: service.duration }]
     })
   }
 

@@ -52,7 +52,7 @@ export default defineConfig({
           { type: 'number', name: 'price', label: 'Price (ZAR)', required: true },
           { type: 'string', name: 'description', label: 'Description', ui: { component: 'textarea' } },
           { type: 'number', name: 'order', label: 'Display order', description: 'Lower numbers show first within the category. Leave alone unless you want to reorder.' },
-          { type: 'number', name: 'id', label: 'Internal ID', description: 'Do not change — used to track bookings.' },
+          { type: 'number', name: 'itemId', label: 'Internal ID', description: 'Do not change — used to track bookings.' },
         ],
       },
       {
@@ -71,7 +71,8 @@ export default defineConfig({
           { type: 'number', name: 'price', label: 'Price (ZAR)', required: true },
           { type: 'string', name: 'badge', label: 'Badge', description: 'e.g. "Best Seller", "New Arrival"' },
           { type: 'image', name: 'image', label: 'Product Photo' },
-          { type: 'string', name: 'id', label: 'Internal ID', description: 'Do not change — used by the cart.' },
+          { type: 'image', name: 'gallery', label: 'Looping Photos', list: true, description: 'Optional — if two or more photos are added here, the card crossfades between them on a continuous loop instead of showing a single static photo.' },
+          { type: 'string', name: 'itemId', label: 'Internal ID', description: 'Do not change — used by the cart.' },
         ],
       },
       {
@@ -94,7 +95,7 @@ export default defineConfig({
           { type: 'string', name: 'readTime', label: 'Read time', description: 'e.g. "5 min read"' },
           { type: 'string', name: 'excerpt', label: 'Excerpt', ui: { component: 'textarea' }, required: true },
           { type: 'string', name: 'body', label: 'Paragraphs', list: true, ui: { component: 'textarea' } },
-          { type: 'number', name: 'id', label: 'Internal ID', description: 'Do not change.' },
+          { type: 'number', name: 'itemId', label: 'Internal ID', description: 'Do not change.' },
         ],
       },
       {

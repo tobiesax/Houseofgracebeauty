@@ -5,7 +5,7 @@ const modules = import.meta.glob('../../content/blog/*.json', { eager: true, imp
 
 export const BLOG_POSTS = Object.entries(modules)
   .map(([path, data]) => ({ ...data, slug: path.split('/').pop().replace(/\.json$/, '') }))
-  .sort((a, b) => a.id - b.id)
+  .sort((a, b) => a.itemId - b.itemId)
 
 export const BLOG_CATEGORY_COLOR = {
   'Hair Treatment': 'bg-primary/10 text-primary-dark',
