@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
-    "build": "tinacms build && vite build",
+    "build": "vite build",
     "fetch:reviews": "node scripts/fetch-reviews.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
