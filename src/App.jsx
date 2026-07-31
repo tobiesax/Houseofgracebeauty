@@ -642,7 +642,7 @@ function Pillars() {
   const pillars = [
     {
       n: '01', title: 'Diagnosis first',
-      target: 100, suffix: '%', label: 'of plans begin with analysis',
+      target: 100, suffix: '%', label: 'of treatment plans start with a scalp analysis',
       desc: 'Nothing is recommended before we\'ve actually looked. Your plan comes from what we find on your scalp — never from what\'s easiest to sell.',
     },
     {
@@ -653,7 +653,7 @@ function Pillars() {
     {
       n: '03', title: 'Trusted care',
       target: 4, suffix: '.8', label: 'Google rating (9 reviews)',
-      desc: 'Clients return because the results hold. Healthier scalps, less breakage, and length that finally stays on the head.',
+      desc: 'Healthier scalps, less breakage, and length that finally stays on the head.',
     },
   ]
 
@@ -733,13 +733,15 @@ function Protocol() {
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray('.protocol-card')
       cards.forEach((card, i) => {
-        if (i === cards.length - 1) return
+        const nextCard = cards[i + 1]
+        if (!nextCard) return
+        // Recede only while the next card is actually sliding in over it, so
+        // each card stays fully sharp for the whole time it's the one being read.
         gsap.to(card, {
           scrollTrigger: {
-            trigger: card,
-            start: 'top top+=100',
-            endTrigger: cards[cards.length - 1],
-            end: 'top top+=120',
+            trigger: nextCard,
+            start: 'top bottom',
+            end: 'top top+=100',
             scrub: 1,
           },
           scale: 0.92,
@@ -1458,7 +1460,21 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
     e.preventDefault()
     if (!form.name || !form.email || !form.message) return
     setStatus('sending')
-    setTimeout(() => setStatus('sent'), 1200)
+
+    const lines = [
+      'New enquiry from the website:',
+      '',
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.phone && `Phone: ${form.phone}`,
+      form.area && `Area: ${form.area}`,
+      '',
+      form.message,
+    ].filter((line) => line !== false && line !== undefined)
+    const text = encodeURIComponent(lines.join('\n'))
+    window.open(`https://wa.me/${SETTINGS.contact.whatsapp}?text=${text}`, '_blank', 'noopener,noreferrer')
+
+    setStatus('sent')
   }
 
   const handleFiles = (newFiles) => {
@@ -1587,7 +1603,7 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                     <label htmlFor="file-up" className="cursor-pointer block">
                       <Upload className="h-6 w-6 mx-auto text-primary-dark mb-2" />
                       <p className="font-display font-medium text-ink text-sm">Attach inspiration photos</p>
-                      <p className="text-xs text-muted mt-1">Click or drag images here (max 5 photos)</p>
+                      <p className="text-xs text-muted mt-1">Click or drag images here (max 5 photos) — you'll attach these directly in WhatsApp once it opens</p>
                       {files.length > 0 && (
                         <div className="mt-4 flex flex-wrap gap-2 justify-center">
                           {files.map((f, i) => (
@@ -1602,13 +1618,13 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                   </div>
 
                   <div className="mt-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                    <p className="text-xs text-muted">We will be in touch shortly. Fields with * are required.</p>
+                    <p className="text-xs text-muted">This opens WhatsApp with your message ready to send. Fields with * are required.</p>
                     <button
                       type="submit"
                       disabled={status === 'sending'}
                       className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-lg shadow-primary/30 disabled:opacity-50"
                     >
-                      {status === 'sending' ? 'Sending...' : 'Send Message'}
+                      {status === 'sending' ? 'Opening WhatsApp...' : 'Send via WhatsApp'}
                       <ArrowRight className="h-4 w-4" />
                     </button>
                   </div>
@@ -1619,7 +1635,7 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                     <CheckCircle2 className="h-8 w-8 text-primary-dark" />
                   </div>
                   <h3 className="font-display font-medium text-2xl text-ink mb-3">Your journey starts now</h3>
-                  <p className="text-muted max-w-md mx-auto">We will be in touch shortly to book your scalp analysis and talk through your hair goals.</p>
+                  <p className="text-muted max-w-md mx-auto">WhatsApp should have opened in a new tab with your message ready — hit send there (and attach any photos) to reach us.</p>
                 </div>
               )}
             </form>
