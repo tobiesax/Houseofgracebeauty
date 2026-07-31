@@ -794,22 +794,27 @@ function Protocol() {
       <div className="max-w-7xl mx-auto mb-16 px-2 sm:px-10">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-dark">╱ Our Treatment Philosophy</span>
         <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink mt-4 leading-[1.05] tracking-tight max-w-3xl">
-          Rooted in African wisdom,
-          <span className="block font-serif italic font-normal text-primary-dark">refined through experience.</span>
+          Rooted in African Wisdom.
+          <span className="block font-serif italic font-normal text-primary-dark">Refined Through Experience.</span>
         </h2>
         <div className="text-muted text-lg mt-6 leading-relaxed max-w-xl space-y-4">
           <p>
-            Rooted in African wisdom and refined through years of hands-on experience, our treatment philosophy is
-            built on understanding that every scalp, hair density, and crown is unique.
+            For over a decade, House of Grace has been dedicated to unlocking the power of Africa's finest seeds,
+            botanicals, and time-honoured hair care traditions. Every treatment we offer is the result of years of
+            research, refinement, practical experience, and countless success stories.
           </p>
           <p>
-            Through personalised scalp assessments, we carefully identify your hair and scalp needs before
-            recommending the right natural, seed-based treatment and suitable low-tension protective styles,
-            including crochet options where appropriate.
+            We have mastered the art of understanding different hair textures, scalp conditions, and hair densities,
+            allowing us to carefully match each client with the treatment their hair truly needs. Our seed-based
+            treatments are designed to restore, repair, and revive hair from the roots, while supporting healthy hair
+            growth and addressing a wide range of hair and scalp concerns.
           </p>
           <p>
-            Our approach combines nature, experience, and intentional care to help protect the scalp, reduce
-            unnecessary tension, strengthen the hair, and support healthier growth from the roots.
+            We believe every crown deserves personalised care. That is why our treatments combine the richness of
+            African wisdom with years of proven expertise to deliver healthy, resilient, and thriving hair naturally.
+          </p>
+          <p className="font-display font-medium text-ink">
+            Nature perfected. Results proven. African wisdom you can trust.
           </p>
         </div>
       </div>
