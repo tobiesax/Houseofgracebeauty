@@ -87,7 +87,11 @@ function Navbar() {
         <div className="flex items-center justify-between gap-6">
           <a href="#home" className="flex items-center gap-2 group">
             <span className="relative flex h-9 w-9 items-center justify-center rounded-full overflow-hidden">
-              <img src="/logo-mark.png" alt="" className="h-full w-full object-contain" />
+              <img
+                src="/logo-mark.png"
+                alt=""
+                className={`h-full w-full object-contain transition-all duration-500 ${scrolled ? '' : 'brightness-0 invert'}`}
+              />
               <span className="absolute inset-0 rounded-full ring-1 ring-primary/20 group-hover:ring-primary/50 transition" />
             </span>
             <span className="flex flex-col leading-tight">
@@ -487,7 +491,7 @@ function Portfolio() {
     { id: 9,  src: '/result-hairline-recovery.jpg',  kind: 'Before / After', category: 'Scalp Recovery',         alt: 'Before and after treatment for a stressed, thinning hairline' },
     { id: 5,  src: '/treatment-basin-rinse.jpg',     kind: 'In the chair',   category: 'Treatment Wash',         alt: 'Treatment being rinsed out at the salon basin' },
     { id: 7,  src: '/home-care-botanical.jpg',       kind: 'At home',        category: 'Home Care Ritual',       alt: 'Client applying a botanical scalp oil at home' },
-    { id: 10, src: '/result-silk-press.jpg',         kind: 'The payoff',     category: 'Silk Press',             alt: 'Sleek, healthy silk press finish' },
+    { id: 10, src: '/result-silk-press.jpg',         kind: 'The payoff',     category: 'Sew In',                 alt: 'Finished sew-in weave install' },
     { id: 11, src: '/result-kids-braids.jpg',        kind: 'The payoff',     category: 'Kids Braids',            alt: 'Finished kids braided style, top view' },
     { id: 12, src: '/result-braided-updo.jpg',       kind: 'The payoff',     category: 'Braided Updo',           alt: 'Finished braided updo with curled ponytail' },
     { id: 13, src: '/result-braids-pink-accent.jpg', kind: 'The payoff',     category: 'Colour Braids',           alt: 'Finished box braids with pink colour accents' },
@@ -770,6 +774,7 @@ function Protocol() {
       tagline: 'Your plan, not a template.',
       text: 'Based on your analysis we select the right therapy — scalp detox, follicle fuel, edge revival, moisture lock, strength fusion. Natural, science-backed formulations, applied with technique specific to African hair.',
       video: '/treatment-application.mp4',
+      poster: '/treatment-application.jpg',
       alt: 'Treatment being combed through the scalp',
       meta: 'Step 2 / Restore',
     },
@@ -815,16 +820,16 @@ function Protocol() {
             key={idx}
             className="protocol-card sticky top-24 sm:top-28 mx-auto max-w-6xl bg-gradient-to-br from-surface to-background border border-divider rounded-6xl overflow-hidden shadow-2xl shadow-primary/5"
           >
-            <div className="grid lg:grid-cols-5 gap-0 min-h-[60vh] lg:min-h-[70vh]">
-              <div className="lg:col-span-3 p-8 sm:p-12 lg:p-16 flex flex-col justify-between">
+            <div className="grid lg:grid-cols-5 gap-0 min-h-[60vh] lg:h-[72vh]">
+              <div className="lg:col-span-3 p-8 sm:p-12 lg:p-16 flex flex-col justify-between overflow-hidden">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">{step.meta}</span>
                   <span className="font-mono text-[10px] uppercase tracking-widest text-primary-dark bg-primary/10 px-2.5 py-1 rounded-full">
                     Grace Protocol
                   </span>
                 </div>
-                <div className="my-12">
-                  <span className="font-display font-semibold text-[7rem] sm:text-[10rem] leading-none text-primary/12 -mb-4 block">
+                <div className="my-6">
+                  <span className="font-display font-semibold text-5xl sm:text-7xl leading-none text-primary/12 -mb-2 block">
                     {step.num}
                   </span>
                   <h3 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl text-ink leading-[1.02] tracking-tight">
@@ -839,11 +844,13 @@ function Protocol() {
                 {step.video ? (
                   <video
                     src={step.video}
+                    poster={step.poster}
                     aria-label={step.alt}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 ) : (
