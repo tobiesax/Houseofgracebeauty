@@ -5,7 +5,7 @@ import { usePageMeta } from '../usePageMeta'
 export default function Terms() {
   usePageMeta({
     title: 'Terms of Service | House Of Grace Beauty Salon',
-    description: 'Booking, appointment and service terms for House Of Grace Beauty Salon in Blackheath, Johannesburg.',
+    description: 'Booking, appointment and service terms for House Of Grace Beauty Salon in Randburg, Johannesburg.',
     path: '/terms',
   })
 

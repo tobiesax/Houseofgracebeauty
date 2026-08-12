@@ -242,9 +242,9 @@ function Hero() {
 
       <div className="relative z-10 flex min-h-[100dvh] flex-col items-center justify-center text-center">
         <div className="px-6 sm:px-10 lg:px-16 max-w-5xl">
-          <p className="hero-meta flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-white/60 mb-6">
+          <p className="hero-meta flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.3em] text-white/60 mt-10 mb-6">
             <span className="h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_10px_3px_rgba(250,204,21,0.75)]" />
-            Blackheath, Johannesburg
+            Randburg, Johannesburg
           </p>
           <h1 className="font-display font-semibold text-white leading-[0.95] tracking-tight">
             <span className="hero-line-1 block text-4xl sm:text-6xl md:text-7xl">
@@ -495,6 +495,19 @@ function Portfolio() {
     { id: 11, src: '/result-kids-braids.jpg',        kind: 'The payoff',     category: 'Kids Braids',            alt: 'Finished kids braided style, top view' },
     { id: 12, src: '/result-braided-updo.jpg',       kind: 'The payoff',     category: 'Braided Updo',           alt: 'Finished braided updo with curled ponytail' },
     { id: 13, src: '/result-braids-pink-accent.jpg', kind: 'The payoff',     category: 'Colour Braids',           alt: 'Finished box braids with pink colour accents' },
+    { id: 14, src: '/gallery-braids-curly-ends.webp',      kind: 'The payoff',        category: 'Curly Braids',        alt: 'Finished braids with loose curly ombre ends' },
+    { id: 15, src: '/gallery-cornrow-twists.webp',         kind: 'The payoff',        category: 'Cornrows',            alt: 'Close-up of neat cornrow twists' },
+    { id: 16, src: '/gallery-goddess-locs.webp',           kind: 'The payoff',        category: 'Goddess Locs',        alt: 'Long ombre curly goddess locs' },
+    { id: 17, src: '/gallery-feed-in-cornrows.webp',       kind: 'The payoff',        category: 'Feed-In Cornrows',    alt: 'Side view of feed-in cornrow pattern' },
+    { id: 18, src: '/gallery-boho-locs.webp',              kind: 'The payoff',        category: 'Boho Locs',           alt: 'Ombre curly boho locs framing the face' },
+    { id: 19, src: '/gallery-kids-cornrow-bun.webp',       kind: 'The payoff',        category: 'Kids Cornrows',       alt: 'Kids cornrow style finished with a top bun' },
+    { id: 20, src: '/gallery-spiral-cornrows.webp',        kind: 'The payoff',        category: 'Spiral Cornrows',     alt: 'Spiral cornrow pattern from above' },
+    { id: 21, src: '/gallery-kids-braided-ponytail.webp',  kind: 'The payoff',        category: 'Kids Braided Ponytail', alt: 'Kids braided style finished with a ponytail bun' },
+    { id: 22, src: '/gallery-cornrow-design.webp',         kind: 'The payoff',        category: 'Cornrow Design',      alt: 'Close-up of a diagonal cornrow design' },
+    { id: 23, src: '/gallery-hair-extensions.webp',        kind: 'Behind the scenes', category: 'Hair Extensions',     alt: 'Rack of premium hair extension bundles' },
+    { id: 24, src: '/gallery-burgundy-braids.webp',        kind: 'The payoff',        category: 'Burgundy Braids',     alt: 'Finished braids with burgundy curly ends' },
+    { id: 25, src: '/gallery-box-braids-curls.webp',       kind: 'The payoff',        category: 'Box Braids',          alt: 'Box braids with curly ends, outdoor shot' },
+    { id: 26, src: '/gallery-braids-side-profile.webp',    kind: 'The payoff',        category: 'Braids & Curls',      alt: 'Side profile of finished braids with curly ends' },
   ]
 
   return (
@@ -739,12 +752,13 @@ function Protocol() {
       cards.forEach((card, i) => {
         const nextCard = cards[i + 1]
         if (!nextCard) return
-        // Recede only while the next card is actually sliding in over it, so
-        // each card stays fully sharp for the whole time it's the one being read.
+        // Recede only during the handoff — a fixed scroll distance right before the
+        // next card locks into place — so it stays sharp the rest of the time it's
+        // pinned regardless of how tall the card is relative to the viewport.
         gsap.to(card, {
           scrollTrigger: {
             trigger: nextCard,
-            start: 'top bottom',
+            start: 'top top+=400',
             end: 'top top+=100',
             scrub: 1,
           },
@@ -1675,7 +1689,7 @@ function Footer() {
           </h2>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mt-8 gap-6">
             <p className="text-white/45 max-w-md">
-              House Of Grace — African hair, scalp wellness and customised treatment therapies in Blackheath,
+              House Of Grace — African hair, scalp wellness and customised treatment therapies in Randburg,
               Johannesburg. Woman-owned, Black-owned, trusted by the community.
             </p>
             <a

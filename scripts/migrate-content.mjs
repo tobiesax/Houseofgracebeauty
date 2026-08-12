@@ -141,7 +141,7 @@ const SETTINGS = {
   phoneIntl: '+27744680171',
   whatsapp: '27744680171',
   email: 'info@houseofgracebeauty.co.za',
-  address: '271 Outlook Terrace, Blackheath, Johannesburg',
+  address: 'Randburg, Johannesburg',
   hours: [
     { days: 'Monday – Saturday', time: '7:00 am – 9:00 pm' },
     { days: 'Sunday', time: 'Closed' },
