@@ -470,6 +470,10 @@ function MeetCEO() {
 function Portfolio() {
   const sectionRef = useRef(null)
   const [selectedImage, setSelectedImage] = useState(null)
+  const [showAll, setShowAll] = useState(false)
+  const visibleRows = 3
+  const columnsAtWidest = 4
+  const initialCount = visibleRows * columnsAtWidest
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -527,7 +531,7 @@ function Portfolio() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {portfolio.map((item) => (
+          {(showAll ? portfolio : portfolio.slice(0, initialCount)).map((item) => (
             <button
               key={item.id}
               onClick={() => setSelectedImage(item)}
@@ -551,6 +555,18 @@ function Portfolio() {
             </button>
           ))}
         </div>
+
+        {!showAll && portfolio.length > initialCount && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 border border-primary-dark/30 text-primary-dark font-medium px-7 py-3.5 rounded-full hover:bg-primary-dark/5 transition-colors"
+            >
+              View More
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        )}
 
         <div className="mt-16 text-center">
           <p className="text-muted text-lg leading-relaxed max-w-2xl mx-auto mb-6">
