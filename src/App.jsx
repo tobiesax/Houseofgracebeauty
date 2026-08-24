@@ -1162,6 +1162,9 @@ function ProductImage({ images, alt, className }) {
 function Products({ addToCart, cartItems }) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
+  const [showAll, setShowAll] = useState(false)
+  const initialCount = Math.max(PRODUCTS.length - 2, 0)
+  const visibleProducts = showAll ? PRODUCTS : PRODUCTS.slice(0, initialCount)
 
   useEffect(() => {
     const el = ref.current
@@ -1198,11 +1201,11 @@ function Products({ addToCart, cartItems }) {
 
         {/* Product cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {PRODUCTS.map((product, i) => (
+          {visibleProducts.map((product, i) => (
             <article
               key={product.itemId}
               style={{ transitionDelay: visible ? `${i * 120}ms` : '0ms' }}
-              className={`group bg-surface border border-divider rounded-5xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-700 ease-out ${
+              className={`group h-full flex flex-col bg-surface border border-divider rounded-5xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-700 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
@@ -1220,56 +1223,70 @@ function Products({ addToCart, cartItems }) {
               </div>
 
               {/* Product info */}
-              <div className="p-6 sm:p-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-dark mb-1">
+              <div className="p-6 sm:p-7 flex flex-col flex-1">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary-dark mb-1 line-clamp-1">
                   {product.tagline}
                 </p>
-                <h3 className="font-display font-semibold text-xl text-ink leading-tight mb-3">
+                <h3 className="font-display font-semibold text-xl text-ink leading-tight mb-3 line-clamp-2">
                   {product.name}
                 </h3>
-                <p className="text-muted text-sm leading-relaxed">
+                <p className="text-muted text-sm leading-relaxed line-clamp-3">
                   {product.description}
                 </p>
 
-                <div className="mt-5 pt-4 border-t border-divider">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted mb-1.5">Prescribed for</p>
-                  <p className="text-sm text-primary-dark">{product.treats}</p>
-                </div>
+                <div className="mt-auto">
+                  <div className="mt-5 pt-4 border-t border-divider">
+                    <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted mb-1.5">Prescribed for</p>
+                    <p className="text-sm text-primary-dark line-clamp-1">{product.treats}</p>
+                  </div>
 
-                <div className="mt-6 flex items-center justify-between gap-3">
-                  <span className="font-display font-semibold text-2xl text-ink">
-                    R{product.price}
-                  </span>
-                  {(() => {
-                    const inCart = cartItems && cartItems.some((item) => item.id === product.itemId)
-                    return (
-                      <button
-                        onClick={() => addToCart && addToCart(product)}
-                        className={`magnetic-btn inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-full shadow-md transition-all duration-300 ${
-                          inCart
-                            ? 'bg-emerald-500 text-white shadow-emerald-200'
-                            : 'bg-primary text-white shadow-primary/25'
-                        }`}
-                      >
-                        {inCart ? (
-                          <>
-                            <CheckCircle2 className="h-3.5 w-3.5" />
-                            Added
-                          </>
-                        ) : (
-                          <>
-                            Add to Cart
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </>
-                        )}
-                      </button>
-                    )
-                  })()}
+                  <div className="mt-6 flex items-center justify-between gap-3">
+                    <span className="font-display font-semibold text-2xl text-ink">
+                      R{product.price}
+                    </span>
+                    {(() => {
+                      const inCart = cartItems && cartItems.some((item) => item.id === product.itemId)
+                      return (
+                        <button
+                          onClick={() => addToCart && addToCart(product)}
+                          className={`magnetic-btn inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded-full shadow-md transition-all duration-300 ${
+                            inCart
+                              ? 'bg-emerald-500 text-white shadow-emerald-200'
+                              : 'bg-primary text-white shadow-primary/25'
+                          }`}
+                        >
+                          {inCart ? (
+                            <>
+                              <CheckCircle2 className="h-3.5 w-3.5" />
+                              Added
+                            </>
+                          ) : (
+                            <>
+                              Add to Cart
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </>
+                          )}
+                        </button>
+                      )
+                    })()}
+                  </div>
                 </div>
               </div>
             </article>
           ))}
         </div>
+
+        {!showAll && PRODUCTS.length > initialCount && (
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 border border-primary-dark/30 text-primary-dark font-medium px-7 py-3.5 rounded-full hover:bg-primary-dark/5 transition-colors"
+            >
+              View More
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   )
