@@ -2004,23 +2004,23 @@ const FAQ = [
   },
   {
     keywords: ['scalp analysis', 'analysis', 'assessment', 'diagnos', 'first visit', 'what happens'],
-    answer: "Our Scalp Analysis & Consultation (ZAR 150, 1 hour) is where every journey starts. Grace assesses your scalp and strands — build-up, inflammation, porosity, breakage patterns, traction damage — then recommends the specific treatment your hair actually needs. No guesswork, no upselling. Book it first and everything else follows from it.",
+    answer: "Our Scalp Analysis & Consultation (ZAR 250, 1 hour) is where every journey starts. Grace assesses your scalp and strands — build-up, inflammation, porosity, breakage patterns, traction damage — then recommends the specific treatment your hair actually needs. No guesswork, no upselling. Book it first and everything else follows from it.",
   },
   {
     keywords: ['hair loss', 'losing hair', 'shedding', 'thinning', 'thin edges', 'edges', 'bald', 'traction', 'alopecia', 'receding', 'patches'],
-    answer: "We treat this often 💕 Hair loss and thinning edges are usually traction, tension or scalp health related — all treatable. The path:\n1️⃣ Scalp Analysis & Consultation — ZAR 150\n2️⃣ Edge Revival Treatment — ZAR 350 (thinning edges & fragile hairlines)\n3️⃣ Follicle Fuel — ZAR 350 (wakes dormant follicles)\nStart with the analysis so we treat the cause, not the symptom.",
+    answer: "We treat this often 💕 Hair loss and thinning edges are usually traction, tension or scalp health related — all treatable. The path:\n1️⃣ Scalp Analysis & Consultation — ZAR 250\n2️⃣ Edge Revival Treatment — ZAR 350 (thinning edges & fragile hairlines)\n3️⃣ Follicle Fuel — ZAR 350 (wakes dormant follicles)\nStart with the analysis so we treat the cause, not the symptom.",
   },
   {
     keywords: ['dandruff', 'flake', 'flaking', 'itchy', 'itch', 'irritat', 'build-up', 'buildup', 'build up', 'oily scalp', 'sore scalp', 'detox'],
-    answer: "That's a scalp health issue, and it responds well to treatment:\n• Scalp Clarity Treatment — ZAR 400 (detox & exfoliation for dandruff, dryness, irritation)\n• Scalp Soother — ZAR 350 (antiseptic, calms and lets the scalp breathe)\n• Tension Tamer — ZAR 350 (soreness after tight styles)\nWe'd confirm which one with a Scalp Analysis first — ZAR 150.",
+    answer: "That's a scalp health issue, and it responds well to treatment:\n• Scalp Clarity Treatment — ZAR 400 (detox & exfoliation for dandruff, dryness, irritation)\n• Scalp Soother — ZAR 350 (antiseptic, calms and lets the scalp breathe)\n• Tension Tamer — ZAR 350 (soreness after tight styles)\nWe'd confirm which one with a Scalp Analysis first — ZAR 250.",
   },
   {
     keywords: ['breakage', 'breaking', 'dry hair', 'dryness', 'brittle', 'split', 'grow', 'growth', 'longer', 'length', 'moisture', 'damaged'],
-    answer: "Growth is rarely the problem — retention is. Breakage cancels out the growth you already have. Our therapies for this:\n• Moisture Lock — ZAR 350\n• HoneyMelt Treatment — ZAR 380 (rehydrates, improves elasticity)\n• Strength Fusion — ZAR 350 (rebuilds structure)\n• Follicle Fuel — ZAR 350 (growth therapy)\nPair with Grace Naturals at home. Start with a Scalp Analysis — ZAR 150.",
+    answer: "Growth is rarely the problem — retention is. Breakage cancels out the growth you already have. Our therapies for this:\n• Moisture Lock — ZAR 350\n• HoneyMelt Treatment — ZAR 380 (rehydrates, improves elasticity)\n• Strength Fusion — ZAR 350 (rebuilds structure)\n• Follicle Fuel — ZAR 350 (growth therapy)\nPair with Grace Naturals at home. Start with a Scalp Analysis — ZAR 250.",
   },
   {
     keywords: ['treatment', 'therapy', 'therapies', 'honeymelt', 'edge revival', 'follicle', 'strength fusion', 'moisture lock', 'shrink', 'shine', 'clarity'],
-    answer: "All treatments are 1-hour sessions, ZAR 150–400:\n• Consultation & Scalp Analysis — ZAR 150 (start here)\n• Scalp Clarity (detox/dandruff) — ZAR 400\n• HoneyMelt (moisture reset) — ZAR 380\n• Follicle Fuel (growth) — ZAR 350\n• Edge Revival (thinning edges) — ZAR 350\n• Moisture Lock · Strength Fusion · Tension Tamer · Scalp Soother · Shrink Ease — ZAR 350 each",
+    answer: "All treatments are 1-hour sessions, ZAR 250–400:\n• Consultation & Scalp Analysis — ZAR 250 (start here)\n• Scalp Clarity (detox/dandruff) — ZAR 400\n• HoneyMelt (moisture reset) — ZAR 380\n• Follicle Fuel (growth) — ZAR 350\n• Edge Revival (thinning edges) — ZAR 350\n• Moisture Lock · Strength Fusion · Tension Tamer · Scalp Soother · Shrink Ease — ZAR 350 each",
   },
   {
     keywords: ['service', 'offer', 'do you do', 'what do', 'menu', 'specialt', 'special'],
@@ -2028,7 +2028,7 @@ const FAQ = [
   },
   {
     keywords: ['price', 'cost', 'how much', 'zar', 'rand', 'charge', 'fee', 'rate'],
-    answer: 'Prices range from ZAR 60 (Cornrow Undo) up to ZAR 950 (Yanky Twist). A few highlights:\n• Braids from ZAR 280\n• Twists from ZAR 300\n• Treatments ZAR 150–400\n• Kids from ZAR 120\nCheck the Services section for the full list.',
+    answer: 'Prices range from ZAR 60 (Cornrow Undo) up to ZAR 950 (Yanky Twist). A few highlights:\n• Braids from ZAR 280\n• Twists from ZAR 300\n• Treatments ZAR 250–400\n• Kids from ZAR 120\nCheck the Services section for the full list.',
   },
   {
     keywords: ['book', 'appointment', 'reserve', 'schedule', 'how to book', 'booking'],
@@ -2076,7 +2076,7 @@ const FAQ = [
   },
   {
     keywords: ['consultation', 'advice', 'recommend', 'suggest', 'best for', 'natural hair', 'not sure', 'which one'],
-    answer: `That is exactly what the Consultation & Scalp Analysis is for (ZAR 150, 1 hour). Grace assesses your hair and scalp, then recommends the right treatment and style for you. Book via the Contact section or WhatsApp ${SETTINGS.contact.phone} 💕`,
+    answer: `That is exactly what the Consultation & Scalp Analysis is for (ZAR 250, 1 hour). Grace assesses your hair and scalp, then recommends the right treatment and style for you. Book via the Contact section or WhatsApp ${SETTINGS.contact.phone} 💕`,
   },
 ]
 

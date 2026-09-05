@@ -134,7 +134,7 @@ export default function BlogPost() {
               rel="noopener noreferrer"
               className="magnetic-btn inline-flex items-center gap-2 bg-primary text-white font-medium px-7 py-3.5 rounded-full shadow-lg shadow-primary/30"
             >
-              Book a scalp analysis · R150
+              Book a scalp analysis · R250
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
