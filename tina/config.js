@@ -118,6 +118,7 @@ export default defineConfig({
               { type: 'string', name: 'whatsapp', label: 'WhatsApp number', description: 'Digits only, e.g. "27744680171"' },
               { type: 'string', name: 'email', label: 'Email address' },
               { type: 'string', name: 'address', label: 'Physical address' },
+              { type: 'string', name: 'mapsUrl', label: 'Google Maps link', description: 'Full URL opened when visitors tap "Get Directions". A Google Maps search/place link.' },
             ],
           },
           {

@@ -941,15 +941,13 @@ function ServicesGrid({ cartItems, addToCart }) {
       <div className="absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-accent/12 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-14">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-light">╱ Treatments & services</span>
-            <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl mt-4 leading-[1.05] tracking-tight">
-              Treatments first,
-              <span className="block font-serif italic font-normal text-primary-light">styling second.</span>
-            </h2>
-          </div>
-          <p className="text-white/55 max-w-md text-base leading-relaxed">
+        <div className="max-w-2xl mb-14">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-primary-light">╱ Treatments & services</span>
+          <h2 className="font-display font-semibold text-4xl sm:text-5xl md:text-6xl mt-4 leading-[1.05] tracking-tight">
+            Treatments first,
+            <span className="block font-serif italic font-normal text-primary-light">styling second.</span>
+          </h2>
+          <p className="text-white/55 text-base sm:text-lg mt-4 leading-relaxed max-w-xl">
             Start with the therapy your scalp analysis calls for. Then choose a protective style that keeps the
             progress you've made.
           </p>
@@ -1600,15 +1598,20 @@ function ContactForm({ cartItems, appointmentDate, appointmentTime }) {
                 </span>
               </a>
 
-              <div className="flex items-center gap-4">
-                <span className="h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-primary" />
+              <a
+                href={SETTINGS.contact.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lift-on-hover flex items-center gap-4 group"
+              >
+                <span className="h-12 w-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary transition">
+                  <MapPin className="h-5 w-5 text-primary group-hover:text-white" />
                 </span>
                 <span>
-                  <span className="block font-mono text-[10px] uppercase tracking-widest text-muted">Location</span>
+                  <span className="block font-mono text-[10px] uppercase tracking-widest text-muted">Location &middot; Get Directions</span>
                   <span className="font-display font-medium text-ink text-lg">{SETTINGS.contact.address}</span>
                 </span>
-              </div>
+              </a>
             </div>
 
             <div className="mt-8 p-4 rounded-3xl bg-primary/5 border border-primary/15">
@@ -1749,9 +1752,14 @@ function Footer() {
               Rooted in Africa. Inspired by nature. Driven by healthy hair. Scalp analysis, customised treatment
               therapies, and protective styling that protects.
             </p>
-            <p className="font-mono text-[10px] uppercase tracking-widest text-white/25 mt-6">
+            <a
+              href={SETTINGS.contact.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[10px] uppercase tracking-widest text-white/25 hover:text-primary-light transition mt-6 block"
+            >
               {SETTINGS.contact.address}
-            </p>
+            </a>
             <div className="flex items-center gap-3 mt-6">
               <a href={SETTINGS.social.facebook || '#'} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="h-9 w-9 rounded-full bg-white/8 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200">
                 <svg viewBox="0 0 24 24" className="h-4 w-4 fill-white/70" xmlns="http://www.w3.org/2000/svg">
@@ -1801,7 +1809,16 @@ function Footer() {
               <li>
                 <a href={`tel:${SETTINGS.contact.phoneIntl}`} className="text-white/60 hover:text-primary-light transition text-sm">{SETTINGS.contact.phone}</a>
               </li>
-              <li className="text-white/55 text-sm">{SETTINGS.contact.address}</li>
+              <li>
+                <a
+                  href={SETTINGS.contact.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/60 hover:text-primary-light transition text-sm"
+                >
+                  {SETTINGS.contact.address}
+                </a>
+              </li>
               {SETTINGS.hours.map((h) => (
                 <li key={h.days} className="text-white/60 text-sm">{h.days} · {h.time}</li>
               ))}

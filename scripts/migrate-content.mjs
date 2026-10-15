@@ -141,7 +141,8 @@ const SETTINGS = {
   phoneIntl: '+27744680171',
   whatsapp: '27744680171',
   email: 'info@houseofgracebeauty.co.za',
-  address: 'Randburg, Johannesburg',
+  address: 'No 3, 9th Street, Alberskroon, Randburg',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=No+3%2C+9th+Street%2C+Alberskroon%2C+Randburg%2C+Johannesburg',
   hours: [
     { days: 'Monday – Saturday', time: '7:00 am – 9:00 pm' },
     { days: 'Sunday', time: 'Closed' },
