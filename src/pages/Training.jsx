@@ -5,8 +5,29 @@ import {
 import { usePageMeta } from '../usePageMeta'
 import SETTINGS from '../../content/settings/index.json'
 import TRAINING from '../../content/training/index.json'
+import FAQSection from '../FAQSection'
+import { SALON_PROVIDER, faqJsonLd } from '../lib/seo'
 
 const PACKAGE_ICONS = [GraduationCap, ClipboardList, Rocket]
+
+const TRAINING_FAQS = [
+  {
+    q: "What does House Of Grace's in-salon training include?",
+    a: 'Our in-salon training covers scalp and hair assessment, treatment protocols and hands-on technique across our specialised treatments — so your team learns to understand the hair and scalp, not just the style.',
+  },
+  {
+    q: 'What training packages are available?',
+    a: 'We offer three packages — TRAIN, TRAIN+BUILD and TRAIN+LAUNCH — ranging from core technique training to full treatment-menu development and launch support. Pricing is discussed on a consultation.',
+  },
+  {
+    q: 'Do you help salons develop their own treatment menu?',
+    a: 'Yes — our TRAIN+BUILD and TRAIN+LAUNCH packages include treatment-menu development, helping your salon introduce specialised services as a new revenue stream.',
+  },
+  {
+    q: 'How do I book an in-salon training consultation?',
+    a: 'Message us on WhatsApp, or get in touch by phone or email — see the contact options below, or use the "Book a Training Consultation" button above.',
+  },
+]
 
 function whatsappLink(packageName) {
   const lines = [
@@ -26,6 +47,29 @@ export default function Training() {
     description: 'Train your team in specialised scalp and hair-support treatments. House Of Grace brings in-salon training, treatment menu development and launch support directly to your salon.',
     path: '/training',
     image: '/og-image.jpg',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'In-Salon Hair & Scalp Treatment Training',
+        name: 'In-Salon Training',
+        description: 'In-salon training, treatment menu development and launch support for salon owners and their teams.',
+        url: 'https://houseofgracebeauty.co.za/training',
+        provider: SALON_PROVIDER,
+        audience: { '@type': 'BusinessAudience', audienceType: 'Salon owners and stylists' },
+        areaServed: { '@type': 'City', name: 'Johannesburg' },
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: 'In-Salon Training Packages',
+          itemListElement: TRAINING.packages.map((pkg) => ({
+            '@type': 'Offer',
+            name: pkg.name,
+            description: pkg.description,
+          })),
+        },
+      },
+      faqJsonLd(TRAINING_FAQS),
+    ],
   })
 
   return (
@@ -208,6 +252,12 @@ export default function Training() {
             ))}
           </div>
         </section>
+
+        <FAQSection
+          eyebrow="Questions"
+          heading="In-salon training, answered."
+          faqs={TRAINING_FAQS}
+        />
 
         {/* Closing CTA */}
         <section className="text-center max-w-2xl mx-auto">

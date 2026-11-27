@@ -386,6 +386,105 @@ function Specialties() {
 }
 
 /* ----------------------------------------------------------------
+   New Offerings Promo (Nail Tech, Massage, In-Salon Training)
+---------------------------------------------------------------- */
+const NEW_OFFERINGS = [
+  {
+    title: 'Nail Tech',
+    tagline: 'French tips, gel, acrylic & more',
+    description: 'Manicures, pedicures and nail enhancements — now part of every visit.',
+    image: '/nails-hero.png',
+    href: '/nails',
+  },
+  {
+    title: 'Massage',
+    tagline: 'Hands, feet & neck',
+    description: 'A relaxing add-on to any treatment, or a reset all on its own.',
+    image: '/massage-hero.png',
+    href: '/massage',
+  },
+  {
+    title: 'In-Salon Training',
+    tagline: 'For salon owners & teams',
+    description: 'Bring our specialised scalp & hair treatments into your own salon.',
+    image: '/training-hero.png',
+    href: '/training',
+  },
+]
+
+function NewOfferings() {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { setVisible(true); observer.disconnect() }
+      },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section ref={ref} className="relative py-14 sm:py-20 px-6 sm:px-10 lg:px-16 bg-background overflow-hidden">
+      <div className="absolute top-0 right-1/4 h-72 w-72 rounded-full bg-accent/8 blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto">
+        <div
+          className={`text-center max-w-2xl mx-auto transition-all duration-1000 ease-out ${
+            visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}
+        >
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-primary-dark">╱ Now at House Of Grace</span>
+          <h2 className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl text-ink mt-4 leading-[1.05] tracking-tight">
+            New ways to
+            <span className="block font-serif italic font-normal text-primary-dark mt-1">treat yourself.</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mt-12">
+          {NEW_OFFERINGS.map((offer, i) => (
+            <Link
+              key={offer.title}
+              to={offer.href}
+              className={`group relative flex flex-col rounded-5xl overflow-hidden bg-surface border border-divider hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-700 ease-out ${
+                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: visible ? `${i * 150}ms` : '0ms' }}
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={offer.image}
+                  alt={offer.title}
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-transparent" />
+                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-widest bg-white/90 backdrop-blur-sm text-primary-dark rounded-full px-3 py-1.5">
+                  New
+                </span>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-display font-semibold text-xl text-ink">{offer.title}</h3>
+                <p className="font-serif italic text-primary-dark text-base mt-0.5">{offer.tagline}</p>
+                <p className="text-muted text-sm leading-relaxed mt-3 flex-1">{offer.description}</p>
+                <span className="inline-flex items-center gap-2 text-primary-dark font-medium text-sm mt-5 group-hover:gap-3 transition-all">
+                  Learn more
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ----------------------------------------------------------------
    Meet The CEO
 ---------------------------------------------------------------- */
 function MeetCEO() {
@@ -2390,6 +2489,7 @@ export default function App() {
       <main>
         <Hero />
         <Specialties />
+        <NewOfferings />
         <MeetCEO />
         <Portfolio />
         <Pillars />

@@ -5,23 +5,54 @@ import SETTINGS from '../../content/settings/index.json'
 import { SERVICES_FULL } from '../lib/services'
 import { SERVICE_ICONS } from '../lib/serviceIcons'
 import PlaceholderImage from '../PlaceholderImage'
+import FAQSection from '../FAQSection'
+import { serviceMenuJsonLd, faqJsonLd } from '../lib/seo'
 
 const FRESHA_URL = SETTINGS.freshaBookingUrl
 
 const GROUP_ORDER = ['Hands', 'Feet', 'Neck & Shoulders', 'Combo']
 
+const MASSAGE_FAQS = [
+  {
+    q: 'What types of massage does House Of Grace offer?',
+    a: 'We offer hand & arm, foot & leg, and neck & shoulder massage, plus a combined hand, foot & neck session and a paraffin wax hand treatment.',
+  },
+  {
+    q: 'Can I add a massage to an existing appointment?',
+    a: "Yes — a massage is a popular add-on to any hair treatment, style or nail appointment while you're already in the chair.",
+  },
+  {
+    q: 'How much does a massage cost?',
+    a: 'Most single-area massages are priced from an estimated ZAR 120–150, with the full hand, foot & neck combo from ZAR 350. See the menu above for current estimates.',
+  },
+  {
+    q: 'Where is House Of Grace Beauty Salon located?',
+    a: "We're based at No 3, 9th Street, Alberskroon, Randburg, Johannesburg, open Monday to Saturday, 7am–9pm.",
+  },
+]
+
 export default function Massage() {
+  const massageServices = SERVICES_FULL.filter((svc) => svc.category === 'Massage')
+  const groups = GROUP_ORDER
+    .map((group) => ({ group, items: massageServices.filter((svc) => svc.subcategory === group) }))
+    .filter((g) => g.items.length > 0)
+
   usePageMeta({
     title: 'Hand, Foot & Neck Massage | House Of Grace Beauty Salon',
     description: 'Relaxing hand, foot and neck & shoulder massage at House Of Grace Beauty Salon, Randburg — a reset on its own, or a lovely add-on to any treatment or style.',
     path: '/massage',
     image: '/og-image.jpg',
+    jsonLd: [
+      serviceMenuJsonLd({
+        serviceType: 'Massage Services',
+        name: 'Hand, Foot & Neck Massage',
+        description: 'Hand & arm, foot & leg, neck & shoulder massage, combo sessions and paraffin wax hand treatment.',
+        path: '/massage',
+        services: massageServices,
+      }),
+      faqJsonLd(MASSAGE_FAQS),
+    ],
   })
-
-  const massageServices = SERVICES_FULL.filter((svc) => svc.category === 'Massage')
-  const groups = GROUP_ORDER
-    .map((group) => ({ group, items: massageServices.filter((svc) => svc.subcategory === group) }))
-    .filter((g) => g.items.length > 0)
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,6 +145,12 @@ export default function Massage() {
           Prices shown are estimates and may be confirmed on booking. Ask about adding a massage on to your existing
           treatment or style appointment.
         </p>
+
+        <FAQSection
+          eyebrow="Questions"
+          heading="Massage, answered."
+          faqs={MASSAGE_FAQS}
+        />
 
         {/* Closing CTA */}
         <section className="text-center max-w-2xl mx-auto">

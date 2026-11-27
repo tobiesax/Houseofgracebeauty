@@ -5,6 +5,8 @@ import SETTINGS from '../../content/settings/index.json'
 import { SERVICES_FULL } from '../lib/services'
 import { SERVICE_ICONS } from '../lib/serviceIcons'
 import PlaceholderImage from '../PlaceholderImage'
+import FAQSection from '../FAQSection'
+import { serviceMenuJsonLd, faqJsonLd } from '../lib/seo'
 
 const FRESHA_URL = SETTINGS.freshaBookingUrl
 
@@ -12,18 +14,47 @@ const FRESHA_URL = SETTINGS.freshaBookingUrl
 // these are the ones we currently use for Nails.
 const GROUP_ORDER = ['Manicures', 'Pedicures', 'Enhancements', 'Finishing Touches']
 
+const NAILS_FAQS = [
+  {
+    q: 'Do you offer gel and acrylic nails?',
+    a: 'Yes — our menu includes classic and gel manicures, classic and gel pedicures, acrylic full sets, dip powder, gel overlay, French tips, nail art and professional acrylic/gel removal.',
+  },
+  {
+    q: 'How much does a manicure cost?',
+    a: 'Our classic manicure starts from an estimated ZAR 150, with gel, acrylic and dip powder options priced higher. See the full menu above for current estimates, confirmed on booking.',
+  },
+  {
+    q: 'Can French tips or nail art be added to any set?',
+    a: 'Yes — French tips, nail art and other finishing touches can be added to any manicure, pedicure or enhancement set.',
+  },
+  {
+    q: 'Where is House Of Grace Beauty Salon located?',
+    a: "We're based at No 3, 9th Street, Alberskroon, Randburg, Johannesburg, open Monday to Saturday, 7am–9pm.",
+  },
+]
+
 export default function Nails() {
+  const nailServices = SERVICES_FULL.filter((svc) => svc.category === 'Nails')
+  const groups = GROUP_ORDER
+    .map((group) => ({ group, items: nailServices.filter((svc) => svc.subcategory === group) }))
+    .filter((g) => g.items.length > 0)
+
   usePageMeta({
     title: 'Nail Tech Services | House Of Grace Beauty Salon',
     description: 'Manicures, pedicures, gel, acrylic, dip powder and nail art at House Of Grace Beauty Salon, Randburg. French tips, enhancements and finishing touches for every occasion.',
     path: '/nails',
     image: '/og-image.jpg',
+    jsonLd: [
+      serviceMenuJsonLd({
+        serviceType: 'Nail Technician Services',
+        name: 'Nail Tech Services',
+        description: 'Manicures, pedicures, gel, acrylic, dip powder, nail art and finishing touches.',
+        path: '/nails',
+        services: nailServices,
+      }),
+      faqJsonLd(NAILS_FAQS),
+    ],
   })
-
-  const nailServices = SERVICES_FULL.filter((svc) => svc.category === 'Nails')
-  const groups = GROUP_ORDER
-    .map((group) => ({ group, items: nailServices.filter((svc) => svc.subcategory === group) }))
-    .filter((g) => g.items.length > 0)
 
   return (
     <div className="min-h-screen bg-background">
@@ -116,6 +147,12 @@ export default function Nails() {
           Prices shown are estimates and may be confirmed on booking. Add-ons like French tips and nail art can be
           combined with any manicure, pedicure or enhancement.
         </p>
+
+        <FAQSection
+          eyebrow="Questions"
+          heading="Nail services, answered."
+          faqs={NAILS_FAQS}
+        />
 
         {/* Closing CTA */}
         <section className="text-center max-w-2xl mx-auto">
