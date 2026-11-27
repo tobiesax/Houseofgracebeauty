@@ -7,6 +7,7 @@ import { SERVICE_ICONS } from '../lib/serviceIcons'
 import PlaceholderImage from '../PlaceholderImage'
 import FAQSection from '../FAQSection'
 import { serviceMenuJsonLd, faqJsonLd } from '../lib/seo'
+import Footer from '../Footer'
 
 const FRESHA_URL = SETTINGS.freshaBookingUrl
 
@@ -171,6 +172,7 @@ export default function Massage() {
           </p>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { BLOG_POSTS, BLOG_CATEGORY_COLOR } from '../lib/blog'
 import { usePageMeta } from '../usePageMeta'
+import Footer from '../Footer'
 
 export default function BlogIndex() {
   usePageMeta({
@@ -93,6 +94,7 @@ export default function BlogIndex() {
           ))}
         </div>
       </main>
+      <Footer />
     </div>
   )
 }

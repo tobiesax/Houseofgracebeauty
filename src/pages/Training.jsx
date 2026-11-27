@@ -7,6 +7,7 @@ import SETTINGS from '../../content/settings/index.json'
 import TRAINING from '../../content/training/index.json'
 import FAQSection from '../FAQSection'
 import { SALON_PROVIDER, faqJsonLd } from '../lib/seo'
+import Footer from '../Footer'
 
 const PACKAGE_ICONS = [GraduationCap, ClipboardList, Rocket]
 
@@ -282,6 +283,7 @@ export default function Training() {
           </p>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }

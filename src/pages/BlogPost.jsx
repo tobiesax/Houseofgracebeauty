@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { BLOG_POSTS, BLOG_CATEGORY_COLOR, getPostBySlug, toISODate } from '../lib/blog'
 import { usePageMeta } from '../usePageMeta'
 import SETTINGS from '../../content/settings/index.json'
+import Footer from '../Footer'
 
 function NotFound() {
   usePageMeta({
@@ -12,12 +13,15 @@ function NotFound() {
     noindex: true,
   })
   return (
-    <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 text-center">
-      <p className="font-mono text-xs uppercase tracking-widest text-primary-dark mb-4">╱ 404</p>
-      <h1 className="font-display font-semibold text-3xl text-ink mb-4">We couldn't find that article</h1>
-      <Link to="/blog" className="inline-flex items-center gap-2 text-primary-dark font-medium hover:text-primary transition-colors">
-        <ArrowLeft className="h-4 w-4" /> Back to all articles
-      </Link>
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
+        <p className="font-mono text-xs uppercase tracking-widest text-primary-dark mb-4">╱ 404</p>
+        <h1 className="font-display font-semibold text-3xl text-ink mb-4">We couldn't find that article</h1>
+        <Link to="/blog" className="inline-flex items-center gap-2 text-primary-dark font-medium hover:text-primary transition-colors">
+          <ArrowLeft className="h-4 w-4" /> Back to all articles
+        </Link>
+      </div>
+      <Footer />
     </div>
   )
 }
@@ -163,6 +167,7 @@ export default function BlogPost() {
           )}
         </div>
       </article>
+      <Footer />
     </div>
   )
 }
