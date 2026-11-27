@@ -1,0 +1,13 @@
+{
+  "itemId": 74,
+  "category": "Nails",
+  "icon": "Palette",
+  "title": "Acrylic Full Set",
+  "duration": "1 hr 30 min",
+  "price": 350,
+  "priceIsPlaceholder": true,
+  "description": "Durable acrylic extensions sculpted to your preferred length and shape.",
+  "image": "/nails-acrylic-full-set.png",
+  "subcategory": "Enhancements",
+  "order": 72
+}

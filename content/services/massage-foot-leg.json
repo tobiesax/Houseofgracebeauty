@@ -1,0 +1,13 @@
+{
+  "itemId": 81,
+  "category": "Massage",
+  "icon": "Footprints",
+  "title": "Foot & Leg Massage",
+  "duration": "20 min",
+  "price": 150,
+  "priceIsPlaceholder": true,
+  "description": "Targeted pressure-point massage for the feet and lower legs — a reset after a long day on your feet.",
+  "image": "/massage-foot-leg.png",
+  "subcategory": "Feet",
+  "order": 79
+}

@@ -1,0 +1,13 @@
+{
+  "itemId": 82,
+  "category": "Massage",
+  "icon": "Flower2",
+  "title": "Neck & Shoulder Massage",
+  "duration": "20 min",
+  "price": 150,
+  "priceIsPlaceholder": true,
+  "description": "Releases tension carried in the neck and shoulders, especially after long salon sessions in the chair.",
+  "image": "/massage-neck-shoulder.png",
+  "subcategory": "Neck & Shoulders",
+  "order": 80
+}

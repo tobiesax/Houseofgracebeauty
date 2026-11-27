@@ -1,0 +1,13 @@
+{
+  "itemId": 72,
+  "category": "Nails",
+  "icon": "Footprints",
+  "title": "Classic Pedicure",
+  "duration": "45 min",
+  "price": 180,
+  "priceIsPlaceholder": true,
+  "description": "Soak, exfoliation, nail shaping and polish for feet that feel as good as they look.",
+  "image": "/nails-classic-pedicure.png",
+  "subcategory": "Pedicures",
+  "order": 70
+}

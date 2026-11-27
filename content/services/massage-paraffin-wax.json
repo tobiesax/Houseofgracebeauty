@@ -1,0 +1,13 @@
+{
+  "itemId": 84,
+  "category": "Massage",
+  "icon": "Hand",
+  "title": "Paraffin Wax Hand Treatment",
+  "duration": "20 min",
+  "price": 120,
+  "priceIsPlaceholder": true,
+  "description": "Deeply moisturising heated wax treatment for dry, tired hands — a lovely finish after a manicure or massage.",
+  "image": "/massage-paraffin-wax.png",
+  "subcategory": "Hands",
+  "order": 82
+}

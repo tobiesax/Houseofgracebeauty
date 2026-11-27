@@ -1,0 +1,13 @@
+{
+  "itemId": 71,
+  "category": "Nails",
+  "icon": "Paintbrush",
+  "title": "Gel Manicure",
+  "duration": "45 min",
+  "price": 220,
+  "priceIsPlaceholder": true,
+  "description": "Classic manicure finished with long-lasting gel polish — chip-free shine for up to two weeks.",
+  "image": "/nails-gel-manicure.png",
+  "subcategory": "Manicures",
+  "order": 69
+}

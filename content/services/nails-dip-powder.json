@@ -1,0 +1,13 @@
+{
+  "itemId": 75,
+  "category": "Nails",
+  "icon": "Palette",
+  "title": "Dip Powder Nails",
+  "duration": "1 hr 15 min",
+  "price": 320,
+  "priceIsPlaceholder": true,
+  "description": "A lightweight, long-wearing powder system with a natural finish and strong hold.",
+  "image": "/nails-dip-powder.png",
+  "subcategory": "Enhancements",
+  "order": 73
+}

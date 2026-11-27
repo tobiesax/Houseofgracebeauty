@@ -6,6 +6,9 @@ import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 import Terms from './pages/Terms.jsx'
 import BlogIndex from './pages/BlogIndex.jsx'
 import BlogPost from './pages/BlogPost.jsx'
+import Training from './pages/Training.jsx'
+import Nails from './pages/Nails.jsx'
+import Massage from './pages/Massage.jsx'
 import HomeButton from './HomeButton.jsx'
 import './index.css'
 
@@ -16,6 +19,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/training" element={<Training />} />
+        <Route path="/nails" element={<Nails />} />
+        <Route path="/massage" element={<Massage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
       </Routes>

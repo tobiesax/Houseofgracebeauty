@@ -1,0 +1,13 @@
+{
+  "itemId": 83,
+  "category": "Massage",
+  "icon": "Flower2",
+  "title": "Hand, Foot & Neck Combo",
+  "duration": "45 min",
+  "price": 350,
+  "priceIsPlaceholder": true,
+  "description": "The full reset — hands, feet and neck in one relaxing session. A popular add-on to any treatment or style.",
+  "image": "/massage-combo.png",
+  "subcategory": "Combo",
+  "order": 81
+}

@@ -7,4 +7,4 @@ const modules = import.meta.glob('../../content/services/*.json', { eager: true,
 
 export const SERVICES_FULL = Object.values(modules).sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 
-export const SERVICE_CATEGORIES = ['Treatment', 'Braids', 'Twist', 'Weave & Sew-In', 'Kids & Specials']
+export const SERVICE_CATEGORIES = ['Treatment', 'Braids', 'Twist', 'Weave & Sew-In', 'Kids & Specials', 'Nails', 'Massage']

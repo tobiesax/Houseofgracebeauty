@@ -14,6 +14,9 @@ const SITE = 'https://houseofgracebeauty.co.za'
 const STATIC_ROUTES = [
   { loc: '/', changefreq: 'weekly', priority: '1.0' },
   { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
+  { loc: '/training', changefreq: 'monthly', priority: '0.7' },
+  { loc: '/nails', changefreq: 'monthly', priority: '0.8' },
+  { loc: '/massage', changefreq: 'monthly', priority: '0.8' },
   { loc: '/privacy', changefreq: 'yearly', priority: '0.3' },
   { loc: '/terms', changefreq: 'yearly', priority: '0.3' },
 ]

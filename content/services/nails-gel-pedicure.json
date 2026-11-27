@@ -1,0 +1,13 @@
+{
+  "itemId": 73,
+  "category": "Nails",
+  "icon": "Footprints",
+  "title": "Gel Pedicure",
+  "duration": "1 hr",
+  "price": 250,
+  "priceIsPlaceholder": true,
+  "description": "Full pedicure finished with gel polish for a durable, high-shine result.",
+  "image": "/nails-gel-pedicure.png",
+  "subcategory": "Pedicures",
+  "order": 71
+}

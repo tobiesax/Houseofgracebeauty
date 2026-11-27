@@ -1,0 +1,13 @@
+{
+  "itemId": 77,
+  "category": "Nails",
+  "icon": "Sparkles",
+  "title": "French Tips",
+  "duration": "add-on · 15 min",
+  "price": 80,
+  "priceIsPlaceholder": true,
+  "description": "The classic white-tipped finish, hand-painted or gelled onto your manicure, pedicure or enhancement set.",
+  "image": "/nails-french-tips.png",
+  "subcategory": "Finishing Touches",
+  "order": 75
+}

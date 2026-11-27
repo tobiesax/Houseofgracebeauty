@@ -1,0 +1,13 @@
+{
+  "itemId": 78,
+  "category": "Nails",
+  "icon": "Palette",
+  "title": "Nail Art & Design",
+  "duration": "from 30 min",
+  "price": 100,
+  "priceIsPlaceholder": true,
+  "description": "Ombre, chrome, hand-painted details or embellishments — tell us your inspiration and we'll bring it to your nails.",
+  "image": "/nails-nail-art.png",
+  "subcategory": "Finishing Touches",
+  "order": 76
+}

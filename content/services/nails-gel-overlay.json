@@ -1,0 +1,13 @@
+{
+  "itemId": 76,
+  "category": "Nails",
+  "icon": "Paintbrush",
+  "title": "Gel Overlay / Builder Gel",
+  "duration": "1 hr",
+  "price": 300,
+  "priceIsPlaceholder": true,
+  "description": "Strengthens and extends your natural nail with a flexible gel layer — subtle and low-maintenance.",
+  "image": "/nails-gel-overlay.png",
+  "subcategory": "Enhancements",
+  "order": 74
+}

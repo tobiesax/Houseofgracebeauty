@@ -1,0 +1,13 @@
+{
+  "itemId": 70,
+  "category": "Nails",
+  "icon": "Hand",
+  "title": "Classic Manicure",
+  "duration": "30 min",
+  "price": 150,
+  "priceIsPlaceholder": true,
+  "description": "Nail shaping, cuticle care and polish of your choice. The foundation for healthy, tidy hands.",
+  "image": "/nails-classic-manicure.png",
+  "subcategory": "Manicures",
+  "order": 68
+}

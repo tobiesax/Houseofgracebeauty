@@ -1,0 +1,13 @@
+{
+  "itemId": 80,
+  "category": "Massage",
+  "icon": "Hand",
+  "title": "Hand & Arm Massage",
+  "duration": "20 min",
+  "price": 150,
+  "priceIsPlaceholder": true,
+  "description": "A relaxing massage for the hands and forearms, easing tension from daily use.",
+  "image": "/massage-hand-arm.png",
+  "subcategory": "Hands",
+  "order": 78
+}

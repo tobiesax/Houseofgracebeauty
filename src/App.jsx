@@ -12,25 +12,12 @@ import {
   ShieldCheck,
   Award,
   Scissors,
-  Sparkles,
-  Gem,
   Leaf,
-  Heart,
-  SprayCan,
   Menu,
   X,
   Upload,
   Bot,
-  ScanSearch,
-  Droplet,
-  Sprout,
-  Sunrise,
-  Droplets,
-  Dumbbell,
-  Flame,
-  Feather,
-  Wind,
-  Waves,
+  ChevronDown,
 } from 'lucide-react'
 
 import REVIEW_DATA from './data/reviews.json'
@@ -38,14 +25,7 @@ import SETTINGS from '../content/settings/index.json'
 import { BLOG_POSTS, BLOG_CATEGORY_COLOR } from './lib/blog'
 import { SERVICES_FULL, SERVICE_CATEGORIES } from './lib/services'
 import { PRODUCTS } from './lib/products'
-
-// Services store their icon as a string (CMS-editable); this resolves it
-// back to the actual lucide-react component at render time. Each Treatment
-// service got its own distinct icon (was 2 icons reused across 12 items).
-const SERVICE_ICONS = {
-  Scissors, Sparkles, Gem, Leaf, Heart, SprayCan, ShieldCheck, Award,
-  ScanSearch, Droplet, Sprout, Sunrise, Droplets, Dumbbell, Flame, Feather, Wind, Waves,
-}
+import { SERVICE_ICONS } from './lib/serviceIcons'
 
 // Every "Book Now" CTA hands off to Fresha — she keeps her existing booking
 // workflow (calendar, deposits, reminders); the site's job is everything
@@ -54,15 +34,35 @@ const FRESHA_URL = SETTINGS.freshaBookingUrl
 
 gsap.registerPlugin(ScrollTrigger)
 
-const NAV_LINKS = [
+// Kept short so the desktop pill doesn't overflow — newer pages (Nails,
+// Massage, Training) live in the "More" dropdown instead of growing this list.
+const MAIN_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'Specialties', href: '#specialties' },
   { label: 'Process', href: '#process' },
   { label: 'Services', href: '#services' },
   { label: 'Products', href: '#products' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '#contact' },
 ]
+
+const MORE_LINKS = [
+  { label: 'Nail Tech', href: '/nails' },
+  { label: 'Massage', href: '/massage' },
+  { label: 'In-Salon Training', href: '/training' },
+]
+
+const CONTACT_LINK = { label: 'Contact', href: '#contact' }
+
+// Flat order for the mobile menu, where overflow isn't a concern.
+const NAV_LINKS = [...MAIN_LINKS, ...MORE_LINKS, CONTACT_LINK]
+
+function NavLink({ link, className, onClick }) {
+  return link.href.startsWith('#') ? (
+    <a href={link.href} className={className} onClick={onClick}>{link.label}</a>
+  ) : (
+    <Link to={link.href} className={className} onClick={onClick}>{link.label}</Link>
+  )
+}
 
 /* ----------------------------------------------------------------
    Navbar
@@ -70,12 +70,23 @@ const NAV_LINKS = [
 function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
+  const moreRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (!moreOpen) return
+    const onClickOutside = (e) => {
+      if (moreRef.current && !moreRef.current.contains(e.target)) setMoreOpen(false)
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [moreOpen])
 
   return (
     <>
@@ -105,16 +116,46 @@ function Navbar() {
           </a>
 
           <div className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => {
+            {MAIN_LINKS.map((link) => {
               const cls = `text-sm font-medium tracking-tight lift-on-hover ${
                 scrolled ? 'text-ink/70 hover:text-primary' : 'text-white/90 hover:text-white'
               } transition-colors`
-              return link.href.startsWith('#') ? (
-                <a key={link.href} href={link.href} className={cls}>{link.label}</a>
-              ) : (
-                <Link key={link.href} to={link.href} className={cls}>{link.label}</Link>
-              )
+              return <NavLink key={link.href} link={link} className={cls} />
             })}
+
+            <div ref={moreRef} className="relative">
+              <button
+                onClick={() => setMoreOpen((v) => !v)}
+                className={`flex items-center gap-1 text-sm font-medium tracking-tight lift-on-hover ${
+                  scrolled ? 'text-ink/70 hover:text-primary' : 'text-white/90 hover:text-white'
+                } transition-colors`}
+                aria-expanded={moreOpen}
+              >
+                More
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${moreOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <div
+                className={`absolute left-1/2 -translate-x-1/2 top-full mt-3 w-48 rounded-3xl glass shadow-xl shadow-primary/10 p-2 transition-all duration-200 ${
+                  moreOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+                }`}
+              >
+                {MORE_LINKS.map((link) => (
+                  <NavLink
+                    key={link.href}
+                    link={link}
+                    onClick={() => setMoreOpen(false)}
+                    className="block rounded-2xl px-4 py-2.5 text-sm font-medium text-ink/80 hover:bg-primary/10 hover:text-primary-dark transition-colors"
+                  />
+                ))}
+              </div>
+            </div>
+
+            <NavLink
+              link={CONTACT_LINK}
+              className={`text-sm font-medium tracking-tight lift-on-hover ${
+                scrolled ? 'text-ink/70 hover:text-primary' : 'text-white/90 hover:text-white'
+              } transition-colors`}
+            />
           </div>
 
           <a
@@ -145,7 +186,7 @@ function Navbar() {
       >
         <div className="absolute inset-0 bg-deep/90 backdrop-blur-2xl" onClick={() => setOpen(false)} />
         <div
-          className={`absolute top-0 left-0 right-0 bg-background rounded-b-5xl px-6 pt-8 pb-12 transition-transform duration-500 ${
+          className={`absolute top-0 left-0 right-0 max-h-[100dvh] overflow-y-auto bg-background rounded-b-5xl px-6 pt-8 pb-12 transition-transform duration-500 ${
             open ? 'translate-y-0' : '-translate-y-full'
           }`}
         >
@@ -1799,6 +1840,9 @@ function Footer() {
               <li><a href="#values" className="text-white/60 hover:text-primary-light transition text-sm">Our Numbers</a></li>
               <li><a href="#services" className="text-white/60 hover:text-primary-light transition text-sm">Treatments</a></li>
               <li><a href="#products" className="text-white/60 hover:text-primary-light transition text-sm">Grace Naturals</a></li>
+              <li><Link to="/nails" className="text-white/60 hover:text-primary-light transition text-sm">Nail Tech</Link></li>
+              <li><Link to="/massage" className="text-white/60 hover:text-primary-light transition text-sm">Massage</Link></li>
+              <li><Link to="/training" className="text-white/60 hover:text-primary-light transition text-sm">In-Salon Training</Link></li>
               <li><a href="#contact" className="text-white/60 hover:text-primary-light transition text-sm">Contact</a></li>
             </ul>
           </div>

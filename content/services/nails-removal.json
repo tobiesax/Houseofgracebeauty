@@ -1,0 +1,13 @@
+{
+  "itemId": 79,
+  "category": "Nails",
+  "icon": "Hand",
+  "title": "Acrylic / Gel Removal",
+  "duration": "30 min",
+  "price": 100,
+  "priceIsPlaceholder": true,
+  "description": "Safe soak-off removal that protects your natural nail bed.",
+  "image": "/nails-removal.png",
+  "subcategory": "Finishing Touches",
+  "order": 77
+}

@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "eyebrow": "In-Salon Training · For Salon Owners",
+    "heading": "Train your team.",
+    "headingAccent": "Build a new revenue stream.",
+    "subheading": "Your stylists already know how to style hair. We bring specialised scalp and hair-support treatment knowledge directly to your salon — so your team can offer more, serve clients better, and create another reason for them to return."
+  },
+  "whatWeTrain": [
+    "Scalp and hair consultation",
+    "Manual scalp observation and assessment",
+    "Understanding different hair and scalp concerns",
+    "Treatment preparation and application",
+    "Herbal, seed and natural-based treatment approaches",
+    "Dry, itchy, oily and congested scalp support",
+    "Breakage and hairline support",
+    "Hair retention and healthy hair-care routines",
+    "Treatment aftercare and client education",
+    "How to recommend the right treatment for each client's individual needs"
+  ],
+  "revenueFlow": [
+    "More services",
+    "More client value",
+    "More repeat visits",
+    "More revenue opportunities"
+  ],
+  "packages": [
+    {
+      "name": "TRAIN",
+      "tagline": "Train the stylists",
+      "description": "Your team learns the treatment process — scalp and hair consultation, assessment, application and aftercare — so they can support clients with confidence from day one."
+    },
+    {
+      "name": "TRAIN + BUILD",
+      "tagline": "Training + treatment menu creation",
+      "description": "Everything in Train, plus we help you turn that knowledge into real services for your menu — names, descriptions and a pricing strategy built around your salon and clientele."
+    },
+    {
+      "name": "TRAIN + LAUNCH",
+      "tagline": "Training + menu + launch strategy + team implementation",
+      "description": "Everything in Train + Build, plus a launch strategy and hands-on support getting your team and clients using the new services from week one."
+    }
+  ],
+  "treatments": [
+    {
+      "name": "Root Reset",
+      "description": "A personalised scalp-support treatment designed to refresh the scalp and create a healthy foundation for the hair-care routine."
+    },
+    {
+      "name": "Scalp Clarity",
+      "description": "A targeted scalp-care service for clients experiencing excess oil, product build-up, dryness or scalp discomfort."
+    },
+    {
+      "name": "Crown Restore",
+      "description": "A focused treatment supporting clients experiencing breakage, fragile areas and hairline concerns."
+    },
+    {
+      "name": "Growth & Retention Therapy",
+      "description": "A personalised treatment focused on scalp care, moisture, reduced breakage and helping clients maintain the length they grow."
+    },
+    {
+      "name": "Herbal Crown Ritual",
+      "description": "A premium herbal and seed-based hair and scalp treatment inspired by African hair-care wisdom."
+    },
+    {
+      "name": "The Complete Crown Experience",
+      "description": "A consultation-led treatment combining scalp care, hair support and personalised aftercare guidance."
+    }
+  ],
+  "treatmentsNote": "Treatment names and services can be customised to suit your salon's brand, clientele and pricing structure.",
+  "whyChoose": [
+    "Train your existing team without sending them away",
+    "Add specialised services to your menu",
+    "Give clients more reasons to return",
+    "Increase the value of each client visit",
+    "Create additional revenue opportunities",
+    "Build your team's confidence and knowledge",
+    "Offer a more personalised client experience",
+    "Introduce a treatment system that can become part of your salon's identity"
+  ],
+  "closing": {
+    "heading": "This is for salon owners who want more.",
+    "subheading": "You already have the clients. You already have the space. Let's help you create another reason for them to spend with you.",
+    "ctaLabel": "Book a Training Consultation"
+  }
+}
