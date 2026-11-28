@@ -2347,7 +2347,6 @@ export default function App() {
       <main>
         <Hero />
         <Specialties />
-        <NewOfferings />
         <MeetCEO />
         <Portfolio />
         <Pillars />
@@ -2371,6 +2370,7 @@ export default function App() {
         <Blog />
         <TrustSignals />
         <ContactForm cartItems={cartItems} appointmentDate={appointmentDate} appointmentTime={appointmentTime} />
+        <NewOfferings />
       </main>
       <Footer />
 
